@@ -1,0 +1,39 @@
+{
+  "name": "ifonlineapi",
+  "version": "0.0.1",
+  "description": "api para aplicativo do if turma  2017.1",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-dev": "nodemon --exec babel-node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2017-1-LCC/ifOnlineAPI.git"
+  },
+  "keywords": [
+    "nodejs",
+    "mongodb",
+    "hapi",
+    "tdd",
+    "ifbaiano",
+    "2017.1"
+  ],
+  "author": "hc3",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2017-1-LCC/ifOnlineAPI/issues"
+  },
+  "homepage": "https://github.com/2017-1-LCC/ifOnlineAPI#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "chai": "^4.1.1",
+    "mocha": "^3.5.0",
+    "supertest": "^3.0.0"
+  },
+  "dependencies": {
+    "hapi": "^16.5.2",
+    "mongoose": "^4.11.6"
+  }
+}
