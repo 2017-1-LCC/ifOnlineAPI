@@ -8,3 +8,11 @@
 - DAO ( Objetos que fazem o contato direto com o banco )
 - Services ( Regras de negócio )
 - Controllers ( End points, rotas e comunicação direta com quem está consumindo a API )
+
+# Realizando testes
+
+    Para consegui testar essa API é preciso apenas ter o nodejs instalado e executar os seguintes comandos :
+    ````
+    npm install 
+    npm run start-dev
+    ````

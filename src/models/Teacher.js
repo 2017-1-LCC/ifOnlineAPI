@@ -9,11 +9,6 @@ const obj = {
         type:String,
         require:true
     },
-
-    registration: {
-        type:String,
-        require:true
-    },
     info: {
         name: {
             type:String
