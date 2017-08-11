@@ -6,8 +6,8 @@ class AbstractDAO {
         this.Model = Model;
     };
 
-    listAll() {
-        return this.Model.find(err,data);
+    listAll(query,options) {
+        return this.Model.find(query,options).exec();
     };
 
     listById(id) {

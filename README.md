@@ -1,6 +1,7 @@
 # ifOnlineAPI
 
-    fala galera dos codes, aqui nesse repo eu vou colocar uma API para que futuramente a gente possa criar um app para consumi-la, por enquanto é só.. hehe 
+    fala galera dos codes, aqui nesse repo eu vou colocar uma API para que futuramente a gente possa criar um app para consumi-la, 
+por enquanto é só.. hehe.
     
 # Organização das pastas
 
@@ -12,6 +13,7 @@
 # Realizando testes
 
     Para consegui testar essa API é preciso apenas ter o nodejs instalado e executar os seguintes comandos :
+    
     ````
     npm install 
     npm run start-dev
