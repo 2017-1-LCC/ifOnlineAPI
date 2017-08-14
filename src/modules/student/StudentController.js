@@ -23,7 +23,7 @@ export default (app) => {
         path:'/student',
         handler: (request, reply) => {
             //console.log('data:',request.payload);
-            studentService.create(request.payload);
+            reply(studentService.create(request.payload));
         }
     })
 

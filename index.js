@@ -2,6 +2,7 @@
 
 import Hapi from 'hapi';
 import mongoose from 'mongoose';
+mongoose.Promise = global.Promise;
 import studentController from './src/modules/student/StudentController';
 
 const app = new Hapi.Server();
