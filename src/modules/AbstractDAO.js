@@ -15,7 +15,13 @@ class AbstractDAO {
     };
 
     create(data) {
-        return this.Model.create(data).exec();
+        return this.Model.create(data).exec(function(err,obj) {
+            if(err) {
+                return err;
+            } else {
+                return obj;
+            }
+        });
     };
 
     remove(id) {
