@@ -15,7 +15,7 @@ class AbstractDAO {
     };
 
     create(data) {
-        return this.Model.create(data);
+        return this.Model.create(data).exec();
     };
 
     remove(id) {

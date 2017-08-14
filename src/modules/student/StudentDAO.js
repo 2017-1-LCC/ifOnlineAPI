@@ -1,5 +1,5 @@
 
-import AbstractDAO from 'AbstractDAO';
+import AbstractDAO from '../AbstractDAO';
 
 class StudentDAO extends AbstractDAO {
 
