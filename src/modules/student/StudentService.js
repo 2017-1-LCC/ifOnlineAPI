@@ -7,16 +7,12 @@ class StudentService {
         this.studentDAO = new StudentDAO(Student);
     };
 
-    findAll(query,options) {
-       return this.studentDAO.listAll({});
+    findAll() {
+       return this.studentDAO.listAll({})
     };
 
     create(data) {
-        this.studentDAO.create(data)
-            .then((err,data) => {
-                console.log('cadastrado com sucesso: ',data);
-            })
-            .catch(err => console.log('erro ao cadastrar :',err));
+        this.studentDAO.create(data);
     }
 }
 

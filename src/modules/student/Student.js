@@ -32,7 +32,8 @@ const obj = {
         ref:'StudyGroup'
     }]
 
-
 };
 
-export default mongoose.model('student',new Schema(obj));
+const studentSchema = new Schema(obj);
+
+export default mongoose.model('student', studentSchema);

@@ -6,7 +6,6 @@ class StudentDAO extends AbstractDAO {
         super(Student);
         this.Student = Student;
     };
-
 }
 
 export default StudentDAO;

@@ -4,17 +4,13 @@ class AbstractDAO {
         this.Model = Model;
     };
 
-    listAll(query,options) {
+    listAll() {
         return this.Model
             .find({})
             .exec()
-            .then((obj) => {
-                console.log(obj);
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-        /*
+            .then(obj => obj)
+            .catch(err => err);
+        /* 
         return {
             "nick":"eliel",
             "registration":"202911"
