@@ -8,11 +8,7 @@ class StudentService {
     };
 
     findAll(query,options) {
-        this.studentDAO.listAll(query,options)
-            .then((err,data)=>{
-                console.log('retorno do StudentService:',data);
-            })
-            .catch( err => console.log('erro no StudentService: ',err));
+       return this.studentDAO.listAll({});
     };
 
     create(data) {

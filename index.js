@@ -8,7 +8,7 @@ import studentController from './src/modules/student/StudentController';
 const app = new Hapi.Server();
 
 
-app.connection({ port: 3000 });
+app.connection({ port: 3001 });
 
 // ### --- CONNECT WITH MONGODB --- ### 
 /*

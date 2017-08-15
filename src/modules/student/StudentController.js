@@ -14,6 +14,7 @@ export default (app) => {
         method:'GET',
         path:'/student',
         handler: (request, reply) => {
+           // console.log("retorno do findAll: ",studentService.findAll());
             reply(studentService.findAll());
         }
     });
@@ -22,7 +23,6 @@ export default (app) => {
         method:'POST',
         path:'/student',
         handler: (request, reply) => {
-            //console.log('data:',request.payload);
             reply(studentService.create(request.payload));
         }
     })

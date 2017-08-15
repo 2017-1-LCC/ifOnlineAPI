@@ -1,4 +1,3 @@
-
 import AbstractDAO from '../AbstractDAO';
 
 class StudentDAO extends AbstractDAO {

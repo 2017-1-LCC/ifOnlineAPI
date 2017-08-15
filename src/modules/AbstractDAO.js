@@ -1,5 +1,3 @@
-
-
 class AbstractDAO {
 
     constructor(Model) {
@@ -7,7 +5,21 @@ class AbstractDAO {
     };
 
     listAll(query,options) {
-        return this.Model.find(query,options).exec();
+        return this.Model
+            .find({})
+            .exec()
+            .then((obj) => {
+                console.log(obj);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+        /*
+        return {
+            "nick":"eliel",
+            "registration":"202911"
+        }
+        */
     };
 
     listById(id) {
@@ -15,7 +27,8 @@ class AbstractDAO {
     };
 
     create(data) {
-        return this.Model.create(data).exec()
+        
+        return this.Model.create(data);
     };
 
     remove(id) {
