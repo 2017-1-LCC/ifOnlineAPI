@@ -26,6 +26,7 @@ const promisse = mongoose.createConnection('mongodb://localhost/ifonline',{
 });
 
 promisse.then(db => {
+    console.log("conectado ao banco com sucesso!");
    // console.log("resultado no promisse: ",db);
 })
 

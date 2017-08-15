@@ -5,8 +5,9 @@ class AbstractDAO {
     };
 
     listAll() {
-        return this.Model
-            .find({})
+
+        this.Model
+            .find()
             .exec()
             .then(obj => obj)
             .catch(err => err);
@@ -23,8 +24,10 @@ class AbstractDAO {
     };
 
     create(data) {
-        
-        return this.Model.create(data);
+        console.log(data);
+        return this.Model.create(data)
+            .then(obj => obj)
+            .catch(err => err);
     };
 
     remove(id) {

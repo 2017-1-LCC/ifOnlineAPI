@@ -8,7 +8,7 @@ class StudentService {
     };
 
     findAll() {
-       return this.studentDAO.listAll({})
+       return this.studentDAO.listAll();
     };
 
     create(data) {

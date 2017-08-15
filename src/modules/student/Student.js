@@ -7,7 +7,6 @@ const obj = {
         type:String,
         require:true
     },
-
     registration: {
         type:String,
         require:true
@@ -34,6 +33,5 @@ const obj = {
 
 };
 
-const studentSchema = new Schema(obj);
-
-export default mongoose.model('student', studentSchema);
+module.exports = mongoose.model('student', new Schema(obj));
+//export default mongoose.model('student', new Schema(obj));
