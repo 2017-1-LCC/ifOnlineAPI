@@ -6,12 +6,18 @@ class AbstractDAO {
 
     listAll() {
 
-        this.Model
-            .find()
-            .exec()
-            .then(obj => obj)
-            .catch(err => err);
+       return (async () => {
+            return await this.Model.find().exec();
+       })(); 
+          
+
         /* 
+        return new Promise((resolve,reject) => {
+            this.Model.find().then(data => {
+                resolve(data)
+            }).catch(reject);
+        })
+
         return {
             "nick":"eliel",
             "registration":"202911"

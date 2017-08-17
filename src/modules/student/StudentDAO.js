@@ -4,7 +4,7 @@ class StudentDAO extends AbstractDAO {
 
     constructor(Student) {
         super(Student);
-        this.Student = Student;
+        this.student = Student;
     };
 }
 

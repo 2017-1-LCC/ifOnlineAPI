@@ -7,7 +7,7 @@ class StudentService {
         this.studentDAO = new StudentDAO(Student);
     };
 
-    findAll() {
+    listAll() {
        return this.studentDAO.listAll();
     };
 

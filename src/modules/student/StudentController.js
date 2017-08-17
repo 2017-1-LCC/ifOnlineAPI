@@ -14,8 +14,13 @@ export default (app) => {
         method:'GET',
         path:'/student',
         handler: (request, reply) => {
-           // console.log("retorno do findAll: ",studentService.findAll());
-            reply(studentService.findAll());
+           // const studentService = new StudentService();
+           //let obj = studentService.findAll()
+           //console.log(studentService.findAll());
+            //reply(studentService.findAll());
+       const list = studentService.listAll();
+       list.then(obj => console.log("objeto: ",obj));
+       console.log(list);
         }
     });
 
