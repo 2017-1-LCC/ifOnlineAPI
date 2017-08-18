@@ -3,7 +3,8 @@ class AbstractDAO {
     constructor(Model) {
         this.Model = Model;
     };
-
+    
+    /*
     async listAll(callback) {
         try{
             await this.Model.find(callback);
@@ -11,6 +12,10 @@ class AbstractDAO {
             throw error;
         }
     };
+    */
+    listAll(callback) {
+        this.Model.find(callback);
+    }
 
     listById(id) {
         return this.Model.findById({_id:id},(err,data));

@@ -1,4 +1,5 @@
 import StudentService from './StudentService';
+import callback from '../utils/callbacks';
 
 exports.register = function(server, options ,next) {
 
@@ -7,10 +8,8 @@ exports.register = function(server, options ,next) {
     server.route({
         method: 'GET',
         path: '/',
-        handler: function (request, reply) {
-            service.listAll((err,docs) => {
-                reply(docs);
-            });
+        handler: (request, reply) => {
+            callback.find(request,reply,service);
         }
     });
 
