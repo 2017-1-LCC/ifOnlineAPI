@@ -5,24 +5,13 @@ class AbstractDAO {
     };
 
     listAll() {
+       this.Model.find((err, docs) => {
+                if (err) {
+                    return err;
+                }
 
-       return (async () => {
-            return await this.Model.find().exec();
-       })(); 
-          
-
-        /* 
-        return new Promise((resolve,reject) => {
-            this.Model.find().then(data => {
-                resolve(data)
-            }).catch(reject);
-        })
-
-        return {
-            "nick":"eliel",
-            "registration":"202911"
-        }
-        */
+                return docs
+            });
     };
 
     listById(id) {

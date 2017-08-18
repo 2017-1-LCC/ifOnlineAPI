@@ -2,13 +2,14 @@
 
 import Hapi from 'hapi';
 import mongoose from 'mongoose';
+import mongojs from 'mongojs';
 mongoose.Promise = global.Promise;
 import studentController from './src/modules/student/StudentController';
 
-const app = new Hapi.Server();
+const server = new Hapi.Server();
 
 
-app.connection({ port: 3001 });
+server.connection({ port: 3001 });
 
 // ### --- CONNECT WITH MONGODB --- ### 
 /*
@@ -19,7 +20,6 @@ mongoose.connect('mongodb://localhost/ifonline', function(err, res) {
 		console.log('CONECTADO AO BANCO COM SUCESSO!');
 	}
 });
-*/
 
 const promisse = mongoose.createConnection('mongodb://localhost/ifonline',{
     useMongoClient: true,
@@ -27,16 +27,26 @@ const promisse = mongoose.createConnection('mongodb://localhost/ifonline',{
 
 promisse.then(db => {
     console.log("conectado ao banco com sucesso!");
-   // console.log("resultado no promisse: ",db);
+    server.app.db = db;
+   
 })
+*/
+
+server.app.db = mongojs('ifonline',['student']);
+
 
 // ### --- START SERVER --- ### 
-app.start((err) => {
-
-    if (err) {
+server.register([
+    require('./src/modules/student/StudentController')
+],(err) => {
+    if(err) {
         throw err;
     }
-    console.log(`Server running at: ${app.info.uri}`);
-});
 
-studentController(app);
+    server.start((err) => {
+        if (err) {
+            throw err;
+        }
+        console.log(`Server running at: ${server.info.uri}`);
+    });
+})

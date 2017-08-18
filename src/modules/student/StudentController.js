@@ -1,14 +1,36 @@
 import StudentService from './StudentService';
 
+exports.register = function(server, options ,next) {
+
+    const db = server.app.db;
+    const service = new StudentService(db.student);
+
+    server.route({
+        method: 'GET',
+        path: '/',
+        handler: function (request, reply) {
+            console.log(service.listAll());
+            //console.log(db.student);
+            /*
+            db.student.find((err, docs) => {
+
+                if (err) {
+                    return reply(Boom.wrap(err, 'Internal MongoDB error'));
+                }
+
+                reply(docs);
+            });
+            */
+        }
+    });
+
+    return next();
+}
+
+/*
 export default (app) => {
     
     const studentService = new StudentService();
-    /*
-    app.route('/student')
-        .get((req,res) => {
-            //studentService.findAll();
-        })
-    */
 
     app.route({
         method:'GET',
@@ -17,10 +39,7 @@ export default (app) => {
            // const studentService = new StudentService();
            //let obj = studentService.findAll()
            //console.log(studentService.findAll());
-            //reply(studentService.findAll());
-       const list = studentService.listAll();
-       list.then(obj => console.log("objeto: ",obj));
-       console.log(list);
+            reply(studentService.findAll());
         }
     });
 
@@ -33,3 +52,8 @@ export default (app) => {
     })
 
 }
+*/
+
+exports.register.attributes = {
+    name: 'routes-student'
+};

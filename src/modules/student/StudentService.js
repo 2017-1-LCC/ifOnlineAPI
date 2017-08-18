@@ -1,14 +1,17 @@
 import StudentDAO from './StudentDAO';
-import Student from './Student.js';
 
 class StudentService {
 
-    constructor() {
+    constructor(Student) {
+        this.student = Student;
         this.studentDAO = new StudentDAO(Student);
     };
 
     listAll() {
-       return this.studentDAO.listAll();
+        return this.student.find((err,docs) => {
+            console.log(docs);
+        })
+       //return this.studentDAO.listAll();
     };
 
     create(data) {
