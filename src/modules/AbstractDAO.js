@@ -4,14 +4,12 @@ class AbstractDAO {
         this.Model = Model;
     };
 
-    listAll() {
-       this.Model.find((err, docs) => {
-                if (err) {
-                    return err;
-                }
-
-                return docs
-            });
+    async listAll(callback) {
+        try{
+            await this.Model.find(callback);
+        }catch(error){
+            throw error;
+        }
     };
 
     listById(id) {
