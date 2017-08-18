@@ -7,10 +7,12 @@ class StudentService {
         this.studentDAO = new StudentDAO(Student);
     };
 
-    listAll() {
-        return this.student.find((err,docs) => {
-            console.log(docs);
-        })
+    async listAll(callback) {
+        try{
+            await this.student.find(callback);
+        }catch(error){
+            throw error;
+        }
        //return this.studentDAO.listAll();
     };
 

@@ -9,8 +9,10 @@ exports.register = function(server, options ,next) {
         method: 'GET',
         path: '/',
         handler: function (request, reply) {
-            console.log(service.listAll());
-            //console.log(db.student);
+            console.log(service.listAll((err,docs) => {
+            reply(docs);
+        }));
+
             /*
             db.student.find((err, docs) => {
 
