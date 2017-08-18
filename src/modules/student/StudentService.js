@@ -13,7 +13,6 @@ class StudentService {
         }catch(error){
             throw error;
         }
-       //return this.studentDAO.listAll();
     };
 
     create(data) {
