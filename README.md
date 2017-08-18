@@ -18,6 +18,9 @@ por enquanto é só.. hehe.<p>
 - [ ] - EDITAR DADOS NO BANCO.
 - [ ] - REMOVER DADOS NO BANCO.
 
+# IDEIA DA API
+- A ideia aqui é primeiramente ter um local para o aluno poder criar grupos de estudos compartilhados, 
+
 # Realizando testes
 
 Para consegui testar essa API é preciso apenas ter o nodejs instalado e executar os seguintes comandos :
