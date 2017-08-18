@@ -33,5 +33,5 @@ const obj = {
 
 };
 
-module.exports = mongoose.model('student', new Schema(obj));
-//export default mongoose.model('student', new Schema(obj));
+//module.exports = mongoose.model('student', new Schema(obj));
+export default mongoose.model('student', new Schema(obj));

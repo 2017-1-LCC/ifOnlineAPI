@@ -10,9 +10,13 @@ class StudentService {
         return this.studentDAO.listAll(callback);
     };
 
-    create(data) {
-        this.studentDAO.create(data);
-    }
+    listById(id,callback) {
+        return this.studentDAO.listById(id,callback);
+    };
+
+    create(data,callback) {
+        this.studentDAO.create(data,callback);
+    };
 }
 
 export default StudentService;
