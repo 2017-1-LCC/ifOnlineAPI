@@ -3,29 +3,25 @@ class AbstractDAO {
     constructor(Model) {
         this.Model = Model;
     };
-    
-    /*
-    async listAll(callback) {
-        try{
-            await this.Model.find(callback);
-        }catch(error){
-            throw error;
-        }
-    };
-    */
+
     listAll(callback) {
         this.Model.find(callback);
-    }
-
-    listById(id) {
-        return this.Model.findById({_id:id},(err,data));
     };
 
-    create(data) {
-        console.log(data);
-        return this.Model.create(data)
-            .then(obj => obj)
-            .catch(err => err);
+    listById(id,callback) {
+        //console.log("findById ",this.Model.findOne());
+        
+        const query = {_id:id};
+        this.Model.findOne(query,callback);
+    };
+
+    create(data,callback) {
+        //console.log("create [data]: ",data);
+        //console.log("create [callback]: ",callback);
+        //const model = new this.Model(data);
+        const instanceModel = new this.Model();
+        instanceModel.create(data,callback);
+
     };
 
     remove(id) {

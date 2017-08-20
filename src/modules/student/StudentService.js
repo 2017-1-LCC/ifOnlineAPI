@@ -15,7 +15,7 @@ class StudentService {
     };
 
     create(data,callback) {
-        this.studentDAO.create(data,callback);
+        return this.studentDAO.create(data,callback);
     };
 }
 

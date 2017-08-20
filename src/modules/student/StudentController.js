@@ -7,11 +7,29 @@ exports.register = function(server, options ,next) {
 
     server.route({
         method: 'GET',
-        path: '/',
+        path: '/student',
         handler: (request, reply) => {
             callback.find(request,reply,service);
         }
     });
+
+    server.route({
+        method: 'POST',
+        path: '/student',
+        handler: (request, reply) => {
+            callback.insert(request, reply, service);
+        }
+    });
+
+    server.route({
+        method: 'GET',
+        path: '/student/{id}',
+        handler: (request, reply) => {
+            callback.findById(request, reply, service);
+        }
+    });
+
+
 
     return next();
 }
