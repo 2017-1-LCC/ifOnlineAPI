@@ -9,27 +9,21 @@ class AbstractDAO {
     };
 
     listById(id,callback) {
-        //console.log("findById ",this.Model.findOne());
-        
         const query = {_id:id};
         this.Model.findOne(query,callback);
     };
 
     create(data,callback) {
-        //console.log("create [data]: ",data);
-        //console.log("create [callback]: ",callback);
-        //const model = new this.Model(data);
-        const instanceModel = new this.Model();
-        instanceModel.create(data,callback);
-
+        this.Model.create(data,callback);
     };
 
-    remove(id) {
-        
+    remove(id,callback) {
+        const query = {_id:id};
+        this.Model.remove(query,callback);
     };
 
     update(id,data) {
-
+        
     };
 }
 

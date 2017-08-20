@@ -12,7 +12,6 @@ const obj = {
     },
     findById: (request, reply, service) => {
         service.listById(request.params.id,(err,doc) => {
-            console.log("to no callback",doc);
             if(!err) {
                 return reply(doc);
             } else {
@@ -22,11 +21,19 @@ const obj = {
         })
     },
     insert: (request,reply,service) => {
-        console.log("to no fora callback",request.payload);
         service.create(request.payload,(err, doc) => {
-            console.log("to no callback",doc);
             if(!err) {
                 return reply(doc);
+            } else {
+                console.log("ERRO NO CALLBACK DO CREATE!!");
+                return reply({error:"ERRO AO TENTAR CADASTRAR UM NOVO REGISTRO"}); 
+            }
+        })
+    },
+    remove: (request, reply, service) => {
+        service.remove(request.params.id,(err) => {
+            if(!err) {
+                return reply("Registro removido com sucesso!");
             } else {
                 console.log("ERRO NO CALLBACK DO CREATE!!");
                 return reply({error:"ERRO AO TENTAR CADASTRAR UM NOVO REGISTRO"}); 

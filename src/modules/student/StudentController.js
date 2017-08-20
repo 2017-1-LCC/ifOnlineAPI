@@ -1,9 +1,10 @@
 import StudentService from './StudentService';
+import Student from './Student';
 import callback from '../utils/callbacks';
 
 exports.register = function(server, options ,next) {
 
-    const service = new StudentService(server.app.db.student);
+    const service = new StudentService(server.app.db.models.student);
 
     server.route({
         method: 'GET',
@@ -26,6 +27,14 @@ exports.register = function(server, options ,next) {
         path: '/student/{id}',
         handler: (request, reply) => {
             callback.findById(request, reply, service);
+        }
+    });
+
+    server.route({
+        method: 'DELETE',
+        path: '/student/{id}',
+        handler: (request, reply) => {
+            callback.remove(request, reply, service);
         }
     });
 

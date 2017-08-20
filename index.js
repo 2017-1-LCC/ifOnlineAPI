@@ -1,16 +1,14 @@
 'use strict';
 
 import Hapi from 'hapi';
-import mongoose from 'mongoose';
-import mongojs from 'mongojs';
-mongoose.Promise = global.Promise;
+import db from './src/modules/config/db';
 import studentController from './src/modules/student/StudentController';
 
 const server = new Hapi.Server();
 
 server.connection({ port: 3001 });
 
-server.app.db = mongojs('ifonline',['student']);
+server.app.db = db;
 
 
 // ### --- START SERVER --- ### 

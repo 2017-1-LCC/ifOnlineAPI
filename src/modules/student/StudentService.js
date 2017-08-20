@@ -17,6 +17,10 @@ class StudentService {
     create(data,callback) {
         return this.studentDAO.create(data,callback);
     };
+
+    remove(id,callback) {
+        return this.studentDAO.remove(id,callback);
+    }
 }
 
 export default StudentService;
