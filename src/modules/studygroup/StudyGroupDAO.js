@@ -1,5 +1,4 @@
-
-import AbstractDAO from 'AbstractDAO';
+import AbstractDAO from '../AbstractDAO';
 
 class StudyGroupDAO extends AbstractDAO {
 
@@ -8,6 +7,6 @@ class StudyGroupDAO extends AbstractDAO {
         this.StudyGroup = StudyGroup;
     };
 
-    
-
 }
+
+export default StudyGroupDAO;

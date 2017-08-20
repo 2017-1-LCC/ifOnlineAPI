@@ -2,7 +2,6 @@
 
 import Hapi from 'hapi';
 import db from './src/modules/config/db';
-import studentController from './src/modules/student/StudentController';
 
 const server = new Hapi.Server();
 
@@ -13,7 +12,9 @@ server.app.db = db;
 
 // ### --- START SERVER --- ### 
 server.register([
-    require('./src/modules/student/StudentController')
+    require('./src/modules/student/StudentController'),
+    require('./src/modules/teacher/TeacherController'),
+    require('./src/modules/studygroup/StudyGroupController')
 ],(err) => {
     if(err) {
         throw err;

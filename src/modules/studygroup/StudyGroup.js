@@ -1,6 +1,4 @@
 import mongoose from 'mongoose';
-
-
 const Schema = mongoose.Schema;
 
 const obj = {
@@ -32,4 +30,4 @@ const obj = {
 
 };
 
-export default mongoose.model('student',new Schema(obj));
+export default mongoose.model('studygroup',new Schema(obj));

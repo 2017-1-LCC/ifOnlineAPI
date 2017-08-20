@@ -38,6 +38,14 @@ exports.register = function(server, options ,next) {
         }
     });
 
+    server.route({
+        method: 'PUT',
+        path: '/student/{id}',
+        handler: (request, reply) => {
+            callback.update(request, reply, service);
+        }
+    });
+
 
 
     return next();

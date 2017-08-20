@@ -13,19 +13,31 @@ por enquanto é só.. hehe.<p>
 # MÉTODOS BÁSICOS DA API
 
 - [x] - BUSCAR DADOS NO BANCO.
-- [ ] - BUSCAR POR ID DADOS NO BANCO.
-- [ ] - SALVAR DADOS NO BANCO.
-- [ ] - EDITAR DADOS NO BANCO.
-- [ ] - REMOVER DADOS NO BANCO.
+- [x] - BUSCAR POR ID DADOS NO BANCO.
+- [x] - SALVAR DADOS NO BANCO.
+- [x] - EDITAR DADOS NO BANCO.
+- [x] - REMOVER DADOS NO BANCO.
 
 # IDEIA DA API
 - A ideia aqui é primeiramente ter um local para o aluno poder criar grupos de estudos compartilhados, 
 
 # Realizando testes
 
-Para consegui testar essa API é preciso apenas ter o nodejs instalado e executar os seguintes comandos :
+Para consegui testar essa API é preciso ter o mongodb instalado na maquina segue um link com um tutorial como instalar o mongodb:
+
+[instalar mongodb - windows](http://www.bosontreinamentos.com.br/nosql/instalando-o-mongodb-no-microsoft-windows/)
+[instalar mongodb - linux](https://www.digitalocean.com/community/tutorials/como-instalar-o-mongodb-no-ubuntu-16-04-pt)
+
+depois do mongodb instalado é hora de instalar o Node pra rodar a aplicação:
+
+[instalar node - windows](http://marcosrocha.net/node-js/instalando-o-node-js-no-windows-how-to-node/)
+[instalar node VIDEO - windows](https://www.youtube.com/watch?v=brSwmLQA0iA)
+[instalar node - linux](https://www.digitalocean.com/community/tutorials/como-instalar-o-node-js-no-ubuntu-16-04-pt)
+
+agora vc vai entrar na pasta ifonlineapi e executar os comandos abaixo:
 
 ````
 npm install 
+npm install -g nodemon
 npm run start-dev
 ````

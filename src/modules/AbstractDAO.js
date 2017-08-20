@@ -22,8 +22,9 @@ class AbstractDAO {
         this.Model.remove(query,callback);
     };
 
-    update(id,data) {
-        
+    update(id,data,callback) {
+        const query = {_id:id};
+        this.Model.findOneAndUpdate(query,data,callback);
     };
 }
 

@@ -20,6 +20,10 @@ class StudentService {
 
     remove(id,callback) {
         return this.studentDAO.remove(id,callback);
+    };
+
+    update(id,data,callback) {
+        return this.studentDAO.update(id,data,callback);
     }
 }
 

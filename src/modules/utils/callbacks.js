@@ -39,6 +39,16 @@ const obj = {
                 return reply({error:"ERRO AO TENTAR CADASTRAR UM NOVO REGISTRO"}); 
             }
         })
+    },
+    update: (request, reply, service) => {
+        service.update(request.params.id,request.payload,(err,doc) => {
+            if(!err) {
+                return reply(doc);
+            } else {
+                console.log("ERRO NO CALLBACK DO UPDATE!!");
+                return reply({error:"ERRO AO TENTAR ATUALIZAR O REGISTRO"}); 
+            }
+        })
     }
     
 
