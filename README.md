@@ -27,9 +27,10 @@ por enquanto é só.. hehe.<p>
 ````
 npm run start-tdd
 ````
--[ ] - Student ( create , list , listbyid, update remove );
--[ ] - StudyGroup ( create , list , listbyid, update remove );
--[ ] - Teacher ( create , list , listbyid, update remove );
+- [x] - STUDENT [ INICIANDO IMPLEMENTAÇÃO DOS TESTES ]
+- [ ] - STUDY GROUP.
+- [ ] - TEACHER.
+- [ ] - USER.
 
 # Rodando a API
 
