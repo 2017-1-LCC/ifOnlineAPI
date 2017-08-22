@@ -6,24 +6,24 @@ class UserService {
         this.userDAO = new UserDAO(Student);
     };
 
-    listAll(callback) {
-        return this.userDAO.listAll(callback);
+    listAll(success,error) {
+        return this.userDAO.listAll(success,error);
     };
 
-    listById(id,callback) {
-        return this.userDAO.listById(id,callback);
+    listById(id,success,error) {
+        return this.userDAO.listById(id,success,error);
     };
 
-    create(data,callback) {
-        return this.userDAO.create(data,callback);
+    create(data,success,error) {
+        return this.userDAO.create(data,success,error);
     };
 
-    remove(id,callback) {
-        return this.userDAO.remove(id,callback);
+    remove(id,success,error) {
+        return this.userDAO.remove(id,success,error);
     };
 
-    update(id,data,callback) {
-        return this.userDAO.update(id,data,callback);
+    update(id,data,success,error) {
+        return this.userDAO.update(id,data,success,error);
     }
 }
 

@@ -29,6 +29,8 @@
   "homepage": "https://github.com/2017-1-LCC/ifOnlineAPI#readme",
   "devDependencies": {
     "babel-cli": "^6.24.1",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
     "chai": "^4.1.1",
     "mocha": "^3.5.0",

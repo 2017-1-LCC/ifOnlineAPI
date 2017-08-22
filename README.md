@@ -21,7 +21,17 @@ por enquanto é só.. hehe.<p>
 # IDEIA DA API
 - A ideia aqui é primeiramente ter um local para o aluno poder criar grupos de estudos compartilhados, 
 
-# Realizando testes
+# TDD ( Testes de integração )
+- Mocha + Chai + Supertest
+- para executar os testes é só rodar:
+````
+npm run start-tdd
+````
+-[ ] - Student ( create , list , listbyid, update remove );
+-[ ] - StudyGroup ( create , list , listbyid, update remove );
+-[ ] - Teacher ( create , list , listbyid, update remove );
+
+# Rodando a API
 
 Para consegui testar essa API é preciso ter o mongodb instalado na maquina segue um link com um tutorial como instalar o mongodb:
 
@@ -34,8 +44,8 @@ depois do mongodb instalado é hora de instalar o Node pra rodar a aplicação:
 [instalar node VIDEO - windows](https://www.youtube.com/watch?v=brSwmLQA0iA) </br>
 [instalar node - linux](https://www.digitalocean.com/community/tutorials/como-instalar-o-node-js-no-ubuntu-16-04-pt) </br>
 
-agora vc vai entrar na pasta ifonlineapi e executar os comandos abaixo:
 
+agora vc vai entrar na pasta ifonlineapi e executar os comandos abaixo:
 ````
 npm install 
 npm install -g nodemon

@@ -6,24 +6,24 @@ class TeacherService {
         this.teacherDAO = new TeacherDAO(Teacher);
     };
 
-    listAll(callback) {
-        return this.teacherDAO.listAll(callback);
+    listAll(success,error) {
+        return this.teacherDAO.listAll(success,error);
     };
 
-    listById(id,callback) {
-        return this.teacherDAO.listById(id,callback);
+    listById(id,success,error) {
+        return this.teacherDAO.listById(id,success,error);
     };
 
-    create(data,callback) {
-        return this.teacherDAO.create(data,callback);
+    create(data,success,error) {
+        return this.teacherDAO.create(data,success,error);
     };
 
-    remove(id,callback) {
-        return this.teacherDAO.remove(id,callback);
+    remove(id,success,error) {
+        return this.teacherDAO.remove(id,success,error);
     };
 
-    update(id,data,callback) {
-        return this.teacherDAO.update(id,data,callback);
+    update(id,data,success,error) {
+        return this.teacherDAO.update(id,data,success,error);
     }
 }
 

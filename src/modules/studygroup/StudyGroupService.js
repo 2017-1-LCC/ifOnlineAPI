@@ -6,24 +6,24 @@ class StudyGroupService {
         this.studyGroupDAO = new StudyGroupDAO(StudyGroup);
     };
 
-    listAll(callback) {
-        return this.studyGroupDAO.listAll(callback);
+    listAll(success,error) {
+        return this.studyGroupDAO.listAll(success,error);
     };
 
-    listById(id,callback) {
-        return this.studyGroupDAO.listById(id,callback);
+    listById(id,success,error) {
+        return this.studyGroupDAO.listById(id,success,error);
     };
 
-    create(data,callback) {
-        return this.studyGroupDAO.create(data,callback);
+    create(data,success,error) {
+        return this.studyGroupDAO.create(data,success,error);
     };
 
-    remove(id,callback) {
-        return this.studyGroupDAO.remove(id,callback);
+    remove(id,success,error) {
+        return this.studyGroupDAO.remove(id,success,error);
     };
 
-    update(id,data,callback) {
-        return this.studyGroupDAO.update(id,data,callback);
+    update(id,data,success,error) {
+        return this.studyGroupDAO.update(id,data,success,error);
     }
 }
 
