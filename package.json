@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-dev": "nodemon --exec babel-node index.js",
+    "start-tdd": "mocha --opts src/modules/tests/mocha.opts src/modules/tests/studentTest.js",
     "debug": "babel-node --nolazy --debug-brk=5858 index.js"
   },
   "repository": {

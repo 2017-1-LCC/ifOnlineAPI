@@ -1,4 +1,4 @@
---require src/modules/test/helpers.js
+--require src/modules/tests/helpers.js
 --reporter spec
 --compilers js:babel-core/register
 --slow 5000
