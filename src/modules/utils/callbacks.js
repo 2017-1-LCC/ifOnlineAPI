@@ -18,8 +18,6 @@ const obj = {
     update: (request, reply, service) => {
         service.update(request.params.id,request.payload,success(reply),error(reply));
     }
-    
-
 }
 
 export default obj;

@@ -3,7 +3,7 @@ import UserDAO from './UserDAO';
 class UserService {
 
     constructor(User) {
-        this.userDAO = new UserDAO(Student);
+        this.userDAO = new UserDAO(User);
     };
 
     listAll(success,error) {

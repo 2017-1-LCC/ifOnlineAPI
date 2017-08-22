@@ -37,6 +37,7 @@
     "supertest": "^3.0.0"
   },
   "dependencies": {
+    "bcrypt": "^1.0.2",
     "bluebird": "^3.5.0",
     "hapi": "^16.5.2",
     "hapi-auth-basic": "^4.2.0",

@@ -1,6 +1,7 @@
 'use strict';
 
 import Hapi from 'hapi';
+import Bcrypt from 'bcrypt';
 import db from './src/modules/config/db';
 import basicAuth from 'hapi-auth-basic';
 
@@ -15,6 +16,7 @@ server.register([
     require('./src/modules/student/StudentController'),
     require('./src/modules/teacher/TeacherController'),
     require('./src/modules/studygroup/StudyGroupController'),
+    require('./src/modules/user/UserController'),
     basicAuth
 ],(err) => {
 
