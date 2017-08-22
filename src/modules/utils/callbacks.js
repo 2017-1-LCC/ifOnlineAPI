@@ -1,54 +1,22 @@
+import success from './success';
+import error from './error';
+
 const obj = {
 
     find: (request,reply,service) => {
-        service.listAll((err,docs) => {
-            if(!err) {
-                return reply(docs);
-            } else {
-                console.log("ERRO NO CALLBACK DO FIND!!");
-                return reply({error:"ERRO AO TENTAR FAZER BUSCA"});
-            }
-        })
+        service.listAll(success(reply),error(reply));
     },
     findById: (request, reply, service) => {
-        service.listById(request.params.id,(err,doc) => {
-            if(!err) {
-                return reply(doc);
-            } else {
-                console.log("ERRO NO CALLBACK DO FINDBYID!!");
-                return reply({error:"ERRO AO TENTAR FAZER BUSCA POR ID"});
-            }
-        })
+        service.listById(request.params.id,success(reply),error(reply));
     },
     insert: (request,reply,service) => {
-        service.create(request.payload,(err, doc) => {
-            if(!err) {
-                return reply(doc);
-            } else {
-                console.log("ERRO NO CALLBACK DO CREATE!!");
-                return reply({error:"ERRO AO TENTAR CADASTRAR UM NOVO REGISTRO"}); 
-            }
-        })
+        service.create(request.payload,success(reply),error(reply));
     },
     remove: (request, reply, service) => {
-        service.remove(request.params.id,(err) => {
-            if(!err) {
-                return reply("Registro removido com sucesso!");
-            } else {
-                console.log("ERRO NO CALLBACK DO CREATE!!");
-                return reply({error:"ERRO AO TENTAR CADASTRAR UM NOVO REGISTRO"}); 
-            }
-        })
+        service.remove(request.params.id,success(reply),error(reply));
     },
     update: (request, reply, service) => {
-        service.update(request.params.id,request.payload,(err,doc) => {
-            if(!err) {
-                return reply(doc);
-            } else {
-                console.log("ERRO NO CALLBACK DO UPDATE!!");
-                return reply({error:"ERRO AO TENTAR ATUALIZAR O REGISTRO"}); 
-            }
-        })
+        service.update(request.params.id,request.payload,success(reply),error(reply));
     }
     
 

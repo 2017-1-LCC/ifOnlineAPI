@@ -1,0 +1,1 @@
+export default (reply) => (docs) => reply(docs)

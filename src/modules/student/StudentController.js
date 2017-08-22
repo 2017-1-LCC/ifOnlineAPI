@@ -12,6 +12,7 @@ exports.register = function(server, options ,next) {
         handler: (request, reply) => {
             callback.find(request,reply,service);
         }
+        
     });
 
     server.route({

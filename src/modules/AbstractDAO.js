@@ -4,27 +4,39 @@ class AbstractDAO {
         this.Model = Model;
     };
 
-    listAll(callback) {
-        this.Model.find(callback);
+    listAll(success,error) {
+        this.Model.find()
+            .exec()
+            .then(success)
+            .catch(error);
     };
 
-    listById(id,callback) {
+    listById(id,success,error) {
         const query = {_id:id};
-        this.Model.findOne(query,callback);
+        this.Model.findOne(query)
+            .exec()
+            .then(success)
+            .catch(error);
     };
 
-    create(data,callback) {
-        this.Model.create(data,callback);
+    create(data,success,error) {
+        this.Model.create(data)
+            .then(success)
+            .catch(error);
     };
 
-    remove(id,callback) {
+    remove(id,success,error) {
         const query = {_id:id};
-        this.Model.remove(query,callback);
+        this.Model.remove(query)
+            .then(success)
+            .catch(error);
     };
 
-    update(id,data,callback) {
+    update(id,data,success,error) {
         const query = {_id:id};
-        this.Model.findOneAndUpdate(query,data,callback);
+        this.Model.findOneAndUpdate(query,data)
+            .then(success)
+            .catch(error);
     };
 }
 

@@ -6,24 +6,24 @@ class StudentService {
         this.studentDAO = new StudentDAO(Student);
     };
 
-    listAll(callback) {
-        return this.studentDAO.listAll(callback);
+    listAll(success,error) {
+        return this.studentDAO.listAll(success,error);
     };
 
-    listById(id,callback) {
-        return this.studentDAO.listById(id,callback);
+    listById(id,success,error) {
+        return this.studentDAO.listById(id,success,error);
     };
 
-    create(data,callback) {
-        return this.studentDAO.create(data,callback);
+    create(data,success,error) {
+        return this.studentDAO.create(data,success,error);
     };
 
-    remove(id,callback) {
-        return this.studentDAO.remove(id,callback);
+    remove(id,success,error) {
+        return this.studentDAO.remove(id,success,error);
     };
 
-    update(id,data,callback) {
-        return this.studentDAO.update(id,data,callback);
+    update(id,data,success,error) {
+        return this.studentDAO.update(id,data,success,error);
     }
 }
 

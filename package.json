@@ -36,6 +36,8 @@
   "dependencies": {
     "bluebird": "^3.5.0",
     "hapi": "^16.5.2",
+    "hapi-auth-basic": "^4.2.0",
+    "hapi-auth-cookie": "^7.0.0",
     "mongoose": "^4.8.7"
   }
 }
