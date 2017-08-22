@@ -26,9 +26,13 @@ const obj = {
         }
 
     },
+    user:{
+        type: Schema.Types.ObjectId,
+        ref:'user'
+    },
     groups: [{
         type: Schema.Types.ObjectId,
-        ref:'StudyGroup'
+        ref:'studygroup'
     }]
 
 };
