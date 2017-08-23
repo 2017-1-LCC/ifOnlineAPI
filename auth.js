@@ -1,7 +1,7 @@
 import UserService from './src/modules/user/UserService';
 import Bcrypt from 'bcrypt';
 
-exports.register = function(server, options ,next) {
+exports.register = (server, options ,next) => {
   server.register(require('hapi-auth-basic'),(err) => {
 
       if(err) throw err;

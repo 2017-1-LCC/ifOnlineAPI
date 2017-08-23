@@ -46,7 +46,6 @@ exports.register = function(server, options ,next) {
         }
     });
 
-
     return next();
 }
 
