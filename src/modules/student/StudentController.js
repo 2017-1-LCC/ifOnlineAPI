@@ -9,10 +9,12 @@ exports.register = function(server, options ,next) {
     server.route({
         method: 'GET',
         path: '/student',
-        handler: (request, reply) => {
-            callback.find(request,reply,service);
+        config: {
+            auth: 'simple',
+            handler: (request, reply) => {
+                callback.find(request,reply,service);
+            }
         }
-        
     });
 
     server.route({

@@ -24,6 +24,10 @@ class UserService {
 
     update(id,data,success,error) {
         return this.userDAO.update(id,data,success,error);
+    };
+
+    findByUsername(username,success,error) {
+        return this.userDAO.findByUsername(username,success,error);
     }
 }
 
