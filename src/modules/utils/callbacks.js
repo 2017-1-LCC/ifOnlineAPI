@@ -1,4 +1,6 @@
 import success from './success';
+import sucessToken from './success-token';
+import errorToken from './error-token';
 import error from './error';
 
 const obj = {
@@ -17,6 +19,12 @@ const obj = {
     },
     update: (request, reply, service) => {
         service.update(request.params.id,request.payload,success(reply),error(reply));
+    },
+    createToken:(request, reply, service) => {
+        service.createToken(request.payload,sucessToken(reply,request.payload),errorToken(reply));
+    },
+    deleteToken:(request, reply, service) => {
+        service.deleteToken(request.payload,sucessToken(reply),errorToken(reply));
     }
 }
 

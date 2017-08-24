@@ -12,7 +12,8 @@ server.register([
     require('./src/modules/student/StudentController'),
     require('./src/modules/teacher/TeacherController'),
     require('./src/modules/studygroup/StudyGroupController'),
-    require('./src/modules/user/UserController')
+    require('./src/modules/user/UserController'),
+    require('./src/modules/auth/AuthController'),
 ],(err) => {
     if(err) throw err;
 })

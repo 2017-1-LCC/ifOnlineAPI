@@ -15,6 +15,7 @@ class StudentService {
     };
 
     create(data,success,error) {
+        console.log(data);
         return this.studentDAO.create(data,success,error);
     };
 
