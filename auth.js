@@ -1,6 +1,6 @@
 import UserService from './src/modules/user/UserService';
 import Bcrypt from 'bcrypt';
-/*
+
 exports.register = (server, options ,next) => {
   server.register(require('hapi-auth-jwt'),(err) => {
 
@@ -9,15 +9,21 @@ exports.register = (server, options ,next) => {
       const service = new UserService(server.app.db.models.user);
 
       function validate(request, decodedToken, callback) {
-
-          var error,
-              credentials = accounts[decodedToken.accountId] || {};
-
-          if (!credentials) {
-              return callback(error, false, credentials);
+        let err = "";
+        function success(user) {
+          if (!user) {
+              err = "usuário não encontrado";
+              return callback(err, false, user);
           }
+          return callback(err, true, user)
+        };
 
-          return callback(error, true, credentials)
+        function error(error) {
+          return error;
+        };
+
+        service.listById(decodedToken.id,success,error);
+          
       };
 
       server.auth.strategy('token', 'jwt', {
@@ -25,12 +31,12 @@ exports.register = (server, options ,next) => {
           validateFunc: validate,
           verifyOptions: { algorithms: [ 'HS256' ] }  // only allow HS256 algorithm
       });
-      //server.auth.strategy('simple','basic',{ validateFunc: basicValidation });
-
+      next();
   })
 }
-*/
 
+
+/*
 exports.register = (server, options ,next) => {
   server.register(require('hapi-auth-basic'),(err) => {
 
@@ -62,7 +68,7 @@ exports.register = (server, options ,next) => {
       next();
   })
 }
-
+*/
 
 
 

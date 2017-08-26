@@ -9,40 +9,55 @@ exports.register = function(server, options ,next) {
     server.route({
         method: 'GET',
         path: '/user',
-        handler: (request, reply) => {
-            callback.find(request,reply,service);
+        config: {
+            auth:'token',
+            handler: (request, reply) => {
+                callback.find(request,reply,service);
+            }
         }
     });
 
     server.route({
         method: 'POST',
         path: '/user',
-        handler: (request, reply) => {
-            callback.insert(request, reply, service);
+        config: {
+            auth:'token',
+            handler: (request, reply) => {
+                callback.insert(request, reply, service);
+            }
         }
     });
 
     server.route({
         method: 'GET',
         path: '/user/{id}',
-        handler: (request, reply) => {
-            callback.findById(request, reply, service);
+        config: {
+            auth:'token',
+             handler: (request, reply) => {
+                callback.findById(request, reply, service);
+            }
         }
     });
 
     server.route({
         method: 'DELETE',
         path: '/user/{id}',
-        handler: (request, reply) => {
-            callback.remove(request, reply, service);
+        config: {
+            auth:'token',
+            handler: (request, reply) => {
+                callback.remove(request, reply, service);
+            }
         }
     });
 
     server.route({
         method: 'PUT',
         path: '/user/{id}',
-        handler: (request, reply) => {
-            callback.update(request, reply, service);
+        config: {
+            auth:'token',
+            handler: (request, reply) => {
+                callback.update(request, reply, service);
+            }
         }
     });
 
