@@ -3,7 +3,7 @@ import Hapi from 'hapi';
 import db from './src/modules/config/db';
 
 const server = new Hapi.Server();
-server.connection({ port: 3001 });
+server.connection({ port: 3000 });
 server.app.db = db;
 
 // ### --- START SERVER --- ### 
