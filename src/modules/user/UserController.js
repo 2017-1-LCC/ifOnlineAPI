@@ -21,7 +21,7 @@ exports.register = function(server, options ,next) {
         method: 'POST',
         path: '/user',
         config: {
-            auth:'token',
+            auth:false,
             handler: (request, reply) => {
                 callback.insert(request, reply, service);
             }
