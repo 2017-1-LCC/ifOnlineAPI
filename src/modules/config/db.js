@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const DB = 'ifonline'
-mongoose.connect('mongodb://localhost/' + DB)
+mongoose.connect('mongodb://hc3:root@ds025973.mlab.com:25973/sgvdb')
 mongoose.Promise = require('bluebird')
 
 const db = mongoose.connection
