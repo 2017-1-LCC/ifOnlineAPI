@@ -4,7 +4,8 @@
   "description": "api para aplicativo do if turma  2017.1",
   "main": "index.js",
   "engines": {
-    "node": "6.11.1"
+    "node": "6.11.1",
+    "npm":"3.10.10"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
