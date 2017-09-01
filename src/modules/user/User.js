@@ -5,9 +5,34 @@ import bcrypt from 'bcrypt';
 const SALT_WORK_FACTOR = 10;
 
 const UserSchema = new Schema({
-  name: String,
-  password: String,
+  name: {
+    type:String,
+    require:true
+  },
+  password: {
+    type:String,
+    require:true
+  },
 });
+
+UserSchema
+  .path('name')
+  .validate(function(value, respond) {
+    var self = this;
+    return this.constructor.findOne({ name: value })
+      .then(function(user) {
+        if (user) {
+          if (self.id === user.id) {
+            return respond(true);
+          }
+          return respond(false);
+        }
+        return respond(true);
+      })
+      .catch(function(err) {
+        throw err;
+      });
+  }, 'esse login já está em uso.');
 
 UserSchema.pre('save', function(next) {
   var user = this;
