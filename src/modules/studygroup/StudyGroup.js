@@ -5,15 +5,15 @@ const obj = {
 
     admin: {
         type:Schema.Types.ObjectId,
-        ref:'Student' 
+        ref:'student' 
     },
     teacher: {
         type:Schema.Types.ObjectId,
-        ref:'Teacher' 
+        ref:'teacher' 
     },
     students: [{
         type:Schema.Types.ObjectId,
-        ref:'Student'
+        ref:'student'
     }],
     matter: {
         type:String,
