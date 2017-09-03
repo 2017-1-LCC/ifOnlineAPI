@@ -4,7 +4,11 @@ export default (reply, data) => (user) => {
   user.comparePassword(data.password, (err,isMath) => {
     if(isMath) {
       const payload = {id:user._id};
-      reply({token:jwt.encode(payload,'secret')});
+      const resposta = {
+        token:jwt.encode(payload,'secret'),
+        idUser:user._id
+      }
+      reply(resposta);
     } else{
       reply("no tokens");
     }
