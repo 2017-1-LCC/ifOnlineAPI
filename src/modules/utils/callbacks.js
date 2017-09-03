@@ -25,6 +25,9 @@ const obj = {
     },
     deleteToken:(request, reply, service) => {
         service.deleteToken(request.payload,sucessToken(reply),errorToken(reply));
+    },
+    findByUser:(request, reply, service) => {
+        service.findByUser(request.params.id,success(reply),error(reply));
     }
 }
 

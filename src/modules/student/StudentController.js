@@ -6,17 +6,29 @@ exports.register = function(server, options ,next) {
 
     const service = new StudentService(server.app.db.models.student);
     const typeAuth = 'token';
+
     server.route({
         method: 'GET',
         path: '/student',
         config: {
-            auth: 'token',
+            auth: typeAuth,
             handler: (request, reply) => {
                 callback.find(request,reply,service);
             }
         }
     });
 
+     server.route({
+        method: 'GET',
+        path: '/findbyuser/{id}',
+        config: {
+            auth: typeAuth,
+            handler: (request, reply) => {
+                callback.findByUser(request,reply,service);
+            }
+        }
+    });
+   
     server.route({
         method: 'POST',
         path: '/student',

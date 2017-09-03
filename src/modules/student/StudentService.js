@@ -25,7 +25,11 @@ class StudentService {
 
     update(id,data,success,error) {
         return this.studentDAO.update(id,data,success,error);
-    }
+    };
+
+    findByUser(idUser,success,error) {
+        return this.studentDAO.findByUser(idUser,success,error);
+    };
 }
 
 export default StudentService;
