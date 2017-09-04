@@ -34,7 +34,7 @@ exports.register = function(server, options ,next) {
         config: {
             auth:'token',
             handler: (request, reply) => {
-                callback.findById(request, reply, service);
+                callback.findGroupsWithPopulate(request, reply, service);
             }
         }
     });

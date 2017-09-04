@@ -28,6 +28,9 @@ const obj = {
     },
     findByUser:(request, reply, service) => {
         service.findByUser(request.params.id,success(reply),error(reply));
+    },
+    findGroupsWithPopulate:(request, reply, service) => {
+        service.findWithPopulate(request.params.id,success(reply, error(reply)));
     }
 }
 

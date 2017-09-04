@@ -24,6 +24,10 @@ class StudyGroupService {
 
     update(id,data,success,error) {
         return this.studyGroupDAO.update(id,data,success,error);
+    };
+
+    findWithPopulate(id,success,error) {
+        return this.studyGroupDAO.findWithPopulate(id,success,error);
     }
 }
 
