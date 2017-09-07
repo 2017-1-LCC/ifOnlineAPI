@@ -33,7 +33,7 @@ exports.register = function(server, options ,next) {
         method: 'POST',
         path: '/student',
         config:{
-            auth:typeAuth,
+            auth:false,
             handler: (request, reply) => {
                 callback.insert(request, reply, service);
             }

@@ -3,28 +3,14 @@ const Schema = mongoose.Schema;
 
 const obj = {
 
-    nick: {
-        type:String,
-        require:true
+    name: {
+        type:String
     },
-    registration: {
-        type:String,
-        require:true
+    birthDate: {
+        type:Date
     },
-    info: {
-        name: {
-            type:String
-        },
-        age: {
-            type:Number
-        },
-        birthDate: {
-            type:Date
-        },
-        email: {
-            type:String
-        }
-
+    email: {
+        type:String
     },
     user:{
         type: Schema.Types.ObjectId,

@@ -1,8 +1,9 @@
 const mongoose = require('mongoose')
 
-const DB = 'ifonline'
-const DB_UMBLER = 'mongodb://hc3:ifonline2017@tatooine.mongodb.umbler.com:40952/ifonline'
+const localhost = 'mongodb://localhost/ifonline'
 const heroku = 'mongodb://hc3:root@ds025973.mlab.com:25973/sgvdb'
+
+
 mongoose.connect(heroku)
 mongoose.Promise = require('bluebird')
 
