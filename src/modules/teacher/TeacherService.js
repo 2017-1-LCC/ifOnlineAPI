@@ -24,7 +24,11 @@ class TeacherService {
 
     update(id,data,success,error) {
         return this.teacherDAO.update(id,data,success,error);
-    }
+    };
+
+    findByUser(idUser,success,error) {
+        return this.teacherDAO.findByUser(idUser,success,error);
+    };
 }
 
 export default TeacherService;

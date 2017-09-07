@@ -21,7 +21,7 @@ class StudentDAO extends AbstractDAO {
             .exec()
             .then(success)
             .catch(error);
-    }
+    };
 }
 
 export default StudentDAO;

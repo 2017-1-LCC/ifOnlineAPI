@@ -28,6 +28,17 @@ exports.register = function(server, options ,next) {
         }
     });
 
+     server.route({
+        method: 'GET',
+        path: '/findteacherbyuser/{id}',
+        config: {
+            auth: typeAuth,
+            handler: (request, reply) => {
+                callback.findByUser(request,reply,service);
+            }
+        }
+    });
+
     server.route({
         method: 'GET',
         path: '/teacher/{id}',

@@ -13,6 +13,11 @@ const UserSchema = new Schema({
     type:String,
     require:true
   },
+  typeUser: {
+    type:String,
+    enum:['STUDENT','TEACHER'],
+    require:true
+  }
 });
 
 UserSchema

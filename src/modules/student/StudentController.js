@@ -20,7 +20,7 @@ exports.register = function(server, options ,next) {
 
      server.route({
         method: 'GET',
-        path: '/findbyuser/{id}',
+        path: '/findstudentbyuser/{id}',
         config: {
             auth: typeAuth,
             handler: (request, reply) => {
