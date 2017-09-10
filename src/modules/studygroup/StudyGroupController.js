@@ -4,7 +4,7 @@ import callback from '../utils/callbacks';
 
 exports.register = function(server, options ,next) {
 
-    const service = new StudyGroupService(server.app.db.models.studygroup);
+    const service = new StudyGroupService(server.app.db.models.studygroup,server.app.db.models.teacher);
 
     server.route({
         method: 'GET',

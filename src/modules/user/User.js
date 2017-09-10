@@ -5,7 +5,7 @@ import bcrypt from 'bcrypt';
 const SALT_WORK_FACTOR = 10;
 
 const UserSchema = new Schema({
-  name: {
+  username: {
     type:String,
     require:true
   },
@@ -21,10 +21,10 @@ const UserSchema = new Schema({
 });
 
 UserSchema
-  .path('name')
+  .path('username')
   .validate(function(value, respond) {
     var self = this;
-    return this.constructor.findOne({ name: value })
+    return this.constructor.findOne({ username: value })
       .then(function(user) {
         if (user) {
           if (self.id === user.id) {

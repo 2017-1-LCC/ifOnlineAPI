@@ -8,7 +8,7 @@ class UserDAO extends AbstractDAO {
     };
 
     findByUsername(username,success,error) {
-        this.user.find({name:username})
+        this.user.find({username:username})
             .exec()
             .then(success)
             .catch(error);

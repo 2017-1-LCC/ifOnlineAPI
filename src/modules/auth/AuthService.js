@@ -7,11 +7,11 @@ class StudentService {
 
   createToken(data,success,error) {
 
-    if(data.name && data.password) {
+    if(data.username && data.password) {
      
-      const login = data.name;
+      const login = data.username;
 
-      this.user.findOne({'name':login})
+      this.user.findOne({'username':login})
         .then(success)
         .catch(error);
         

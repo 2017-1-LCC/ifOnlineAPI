@@ -2,8 +2,8 @@ import StudyGroupDAO from './StudyGroupDAO';
 
 class StudyGroupService {
 
-    constructor(StudyGroup) {
-        this.studyGroupDAO = new StudyGroupDAO(StudyGroup);
+    constructor(StudyGroup, Teacher) {
+        this.studyGroupDAO = new StudyGroupDAO(StudyGroup, Teacher);
     };
 
     listAll(success,error) {

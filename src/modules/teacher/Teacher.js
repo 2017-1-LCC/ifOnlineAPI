@@ -18,7 +18,7 @@ const obj = {
     },
     groups: [{
         type: Schema.Types.ObjectId,
-        ref:'StudyGroup'
+        ref:'studygroup'
     }]
 
 };

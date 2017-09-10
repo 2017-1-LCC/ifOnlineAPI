@@ -32,7 +32,7 @@ exports.register = function(server, options ,next) {
         method: 'GET',
         path: '/findteacherbyuser/{id}',
         config: {
-            auth: typeAuth,
+            auth: false,
             handler: (request, reply) => {
                 callback.findByUser(request,reply,service);
             }

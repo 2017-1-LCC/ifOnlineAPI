@@ -5,27 +5,10 @@ const obj = {
 
     admin: {
         type:Schema.Types.ObjectId,
-        ref:'student' 
-    },
-    teacher: {
-        type:Schema.Types.ObjectId,
         ref:'teacher' 
     },
-    students: [{
-        type:Schema.Types.ObjectId,
-        ref:'student'
-    }],
-    //mudar para discipline.
-    matter: {
+    discipline: {
         type:String,
-        require:true
-    },
-    local: {
-        type:String,
-        require:true
-    },
-    numMax: {
-        type:Number,
         require:true
     },
     // turma exemplo 2017.1
@@ -43,6 +26,10 @@ const obj = {
         type:Date,
         require:true
     },
+    students: [{
+        type:Schema.Types.ObjectId,
+        ref:'student'
+    }],
     // prova
     proof: [{
         subjects:String,
