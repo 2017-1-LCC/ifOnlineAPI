@@ -8,20 +8,17 @@ class StudyGroupDAO extends AbstractDAO {
         this.teacher = Teacher;
     };
 
+
+
     create(data,success,error) {
         this.group.create(data)
             .then(success)
             .then(group => {
-                const query = {'_id':group.source.admin};
-                this.teacher.findOne(query)
-                    .exec()
-                    .then(teacher => {
-                        const Teacher = new this.teacher(teacher);
-                        Teacher.groups.push(group.source._id);
-                        Teacher.save();
-                    })
+                const idTeacher = {'_id':group.source.admin};
+                const query = {$push:{'groups':group.source}}
+                this.teacher.update(idTeacher,query) 
+                    .then()
                     .catch(error)
-                
             })
             .catch(error)
             .done()
@@ -33,12 +30,8 @@ class StudyGroupDAO extends AbstractDAO {
             .exec()
             .then(group => {
                 const idTeacher = {'_id':group.admin};
-                this.teacher.findOne(idTeacher)
-                    .then(teacher => {
-                        const Teacher = new this.teacher(teacher);
-                        Teacher.groups.remove(id);
-                        Teacher.save();
-                    })
+                const query = {$pull:{'groups':{'_id':group._id}}}
+                this.teacher.update(idTeacher,query)
                     .then(() => {
                         this.group.remove(idGroup)
                             .then(success)
@@ -49,7 +42,6 @@ class StudyGroupDAO extends AbstractDAO {
             .catch(error)
             .done()
     };
-
 
     findWithPopulate(id,success,error) {
         this.group.findOne({_id:id})
