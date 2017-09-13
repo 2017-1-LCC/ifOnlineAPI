@@ -43,10 +43,18 @@ class StudyGroupDAO extends AbstractDAO {
             .done()
     };
 
+    findByTeacher(name,success,error) {
+        this.group.find()
+            .populate('admin',null,{name:name})
+            .populate('students')
+            .exec()
+            .then(success)
+            .catch(error);
+    }
+
     findWithPopulate(id,success,error) {
         this.group.findOne({_id:id})
             .populate('admin')
-            .populate('teacher')
             .populate('students')
             .exec()
             .then(success)

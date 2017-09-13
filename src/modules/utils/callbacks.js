@@ -30,7 +30,10 @@ const obj = {
         service.findByUser(request.params.id,success(reply),error(reply));
     },
     findGroupsWithPopulate:(request, reply, service) => {
-        service.findWithPopulate(request.params.id,success(reply, error(reply)));
+        service.findWithPopulate(request.params.id,success(reply), error(reply));
+    },
+    findGroupsByTeacher:(request, reply, service) => {
+        service.findByTeacher(request.params.name, success(reply), error(reply));
     }
 }
 

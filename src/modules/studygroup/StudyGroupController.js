@@ -40,6 +40,17 @@ exports.register = function(server, options ,next) {
     });
 
     server.route({
+        method: 'GET',
+        path: '/groupsbyteacher/{name}',
+        config: {
+            auth:'token',
+            handler: (request, reply) => {
+                callback.findGroupsByTeacher(request, reply, service);
+            }
+        }
+    });
+
+    server.route({
         method: 'DELETE',
         path: '/studygroup/{id}',
         config: {

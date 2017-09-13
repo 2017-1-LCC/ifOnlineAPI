@@ -28,6 +28,10 @@ class StudyGroupService {
 
     findWithPopulate(id,success,error) {
         return this.studyGroupDAO.findWithPopulate(id,success,error);
+    };
+
+    findByTeacher(name, success, error) {
+        return this.studyGroupDAO.findByTeacher(name, success, error);
     }
 }
 
