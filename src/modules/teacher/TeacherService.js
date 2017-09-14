@@ -29,6 +29,10 @@ class TeacherService {
     findByUser(idUser,success,error) {
         return this.teacherDAO.findByUser(idUser,success,error);
     };
+
+    findPopulate(success, error) {
+        return this.teacherDAO.findPopulate(success, error);
+    }
 }
 
 export default TeacherService;

@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
-const obj = {
+const obj = new Schema({
 
     admin: {
         type:Schema.Types.ObjectId,
@@ -37,8 +37,7 @@ const obj = {
         value:Number
     }]
 
-};
-
+});
 
 /*
 
@@ -58,4 +57,4 @@ provas:[{
 
 
 
-export default mongoose.model('studygroup',new Schema(obj));
+export default mongoose.model('studygroup',obj);

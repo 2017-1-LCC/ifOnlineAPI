@@ -34,7 +34,11 @@ const obj = {
     },
     findGroupsByTeacher:(request, reply, service) => {
         service.findByTeacher(request.params.name, success(reply), error(reply));
+    },
+    findPopulate: (request,reply,service) => {
+        service.findPopulate(success(reply),error(reply));
     }
+
 }
 
 export default obj;

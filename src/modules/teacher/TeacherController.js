@@ -18,6 +18,17 @@ exports.register = function(server, options ,next) {
     });
 
     server.route({
+        method: 'GET',
+        path: '/teacherfull',
+        config: {
+            auth:'token',
+            handler: (request, reply) => {
+                callback.findPopulate(request,reply,service);
+            }
+        }
+    });
+
+    server.route({
         method: 'POST',
         path: '/teacher',
         config: {

@@ -20,8 +20,17 @@ class TeacherDAO extends AbstractDAO {
             })
             .exec()
             .then(success)
-            .catch(error);
+            .catch(error)
     };
+
+    findPopulate(success, error) {
+        this.teacher.find()
+            .populate('user',['_id','username'])
+            .populate('groups')
+            .exec()
+            .then(success)
+            .catch(error)
+    }
 }
 
 export default TeacherDAO;

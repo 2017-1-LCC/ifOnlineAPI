@@ -3,12 +3,10 @@ import AbstractDAO from '../AbstractDAO';
 class StudyGroupDAO extends AbstractDAO {
 
     constructor(StudyGroup, Teacher) {
-        super(StudyGroup);
-        this.group = StudyGroup;
-        this.teacher = Teacher;
-    };
-
-
+        super(StudyGroup)
+        this.group = StudyGroup
+        this.teacher = Teacher
+    }
 
     create(data,success,error) {
         this.group.create(data)
@@ -22,7 +20,7 @@ class StudyGroupDAO extends AbstractDAO {
             })
             .catch(error)
             .done()
-    };
+    }
 
     remove(id,success,error) {
         const idGroup = {'_id':id};
@@ -30,22 +28,21 @@ class StudyGroupDAO extends AbstractDAO {
             .exec()
             .then(group => {
                 const idTeacher = {'_id':group.admin};
-                const query = {$pull:{'groups':{'_id':group._id}}}
+                const query = {$pull:{'groups':group._id}}
                 this.teacher.update(idTeacher,query)
                     .then(() => {
-                        this.group.remove(idGroup)
-                            .then(success)
-                            .catch(error);
-                    })  
+                        group.remove();
+                    })
+                    .then(success)  
                     .catch(error)
             })
             .catch(error)
             .done()
-    };
+    }
 
     findByTeacher(name,success,error) {
         this.group.find()
-            .populate('admin',null,{name:name})
+            .populate('admin')
             .populate('students')
             .exec()
             .then(success)
