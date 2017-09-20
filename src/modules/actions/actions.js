@@ -43,10 +43,10 @@ const obj = {
 
     // TEACHER SERVICE
     findTeacherByUser:(req, res, service) => {
-        service.findTeacherByUser(request.params.id,success(reply),error(reply));
+        service.findTeacherByUser(req,success(res),error(res));
     },
     findTeacherWithGroups: (req, res, service) => {
-        service.findTeacherWithGroups(success(reply),error(reply));
+        service.findTeacherWithGroups(success(res),error(res));
     },
 
     // GROUPS SERVICE 

@@ -21,32 +21,36 @@ describe("## TESTANDO FUNCIONALIDADES DO PROFESSOR",() => {
   before(done => {
     model.remove({})
       .then(() => null)
+
+    modelUser.remove({})
+      .then(() => null)
+
     done();
   })
 
-  after(done => {
-    modelUser.remove({})
-      .then(() => null)
-    done();
-  });
-
   before(done => {
-      Server.inject({
+    Server.inject({
         method:"POST",
         url:"/user",
-        payload: JSON.stringify(user)
-      },res => {
+        payload: JSON.stringify({
+            username:user.username,
+            password:user.password
+        })
+    },res => {
         defaultObj.user = res.result._id;
-      })
+        done()
+    })
+  })
 
-      Server.inject({
+  before(done => {
+    Server.inject({
         method:"POST",
         url:"/teacher",
         payload: JSON.stringify(defaultObj)
-      },res => {
+    },res => {
         id = res.result._id
-        done();
-      })
+        done()
+    })
   })
 
   describe("BUSCA TODOS OS PROFESSOR SEM USO DO TOKEN", () => {
@@ -56,8 +60,8 @@ describe("## TESTANDO FUNCIONALIDADES DO PROFESSOR",() => {
         url:"/teacher"
       },res => {
         expect(res.statusCode).to.eql(401);
-        done();
       })
+        done();
     })
   })
 
@@ -69,10 +73,9 @@ describe("## TESTANDO FUNCIONALIDADES DO PROFESSOR",() => {
         url:"/login",
         payload: JSON.stringify(user)
       },res => {
-        console.log("token: ",token);
         token = res.result.token;
         expect(res.statusCode).to.eql(200);
-        done();
+        done(); 
       })
     })
 
@@ -84,8 +87,7 @@ describe("## TESTANDO FUNCIONALIDADES DO PROFESSOR",() => {
           'Authorization':'Bearer '+token
         }
       },res => {
-       // console.log(res.result);
-        //expect(res.result).to.be.an('array');
+        expect(res.result).to.be.an('array');
         expect(res.statusCode).to.eql(200);
         done();
       })
@@ -138,17 +140,21 @@ describe("## TESTANDO FUNCIONALIDADES DO PROFESSOR",() => {
         payload: JSON.stringify(userTwo)
       },res => {
         defaultObj2.user = res.result._id;
+        Server.inject({
+            method:"POST",
+            url:"/teacher",
+            headers: {  
+            'Authorization':'Bearer '+token
+            },
+            payload: JSON.stringify(defaultObj2)
+        },res => {
+            secondID = res.result._id;
+            expect(res.statusCode).to.eql(200);
+        })
+            done();
       })
 
-      Server.inject({
-        method:"POST",
-        url:"/teacher",
-        payload: JSON.stringify(defaultObj2)
-      },res => {
-        secondID = res.result._id;
-        expect(res.statusCode).to.eql(200);
-        done();
-      })
+
     })
 
     it("/teacher/{id} -> ATUALIZA PROFESSOR", done => {

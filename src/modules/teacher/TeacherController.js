@@ -42,7 +42,7 @@ exports.register = function(server, options ,next) {
         method: 'GET',
         path: '/findteacherbyuser/{id}',
         config: {
-            auth: false,
+            auth: 'token',
             handler: (request, reply) => {
                 action.findTeacherByUser(request,reply,service);
             }
