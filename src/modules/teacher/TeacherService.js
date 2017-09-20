@@ -1,37 +1,19 @@
 import TeacherDAO from './TeacherDAO';
+import AbstractService from '../AbstractService';
 
-class TeacherService {
+class TeacherService extends AbstractService {
 
     constructor(Teacher) {
+        super(new TeacherDAO(Teacher));
         this.teacherDAO = new TeacherDAO(Teacher);
     };
 
-    listAll(success,error) {
-        return this.teacherDAO.listAll(success,error);
+    findTeacherByUser(data,success,error) {
+        return this.teacherDAO.findTeacherByUser(data.params.id,success,error);
     };
 
-    listById(id,success,error) {
-        return this.teacherDAO.listById(id,success,error);
-    };
-
-    create(data,success,error) {
-        return this.teacherDAO.create(data,success,error);
-    };
-
-    remove(id,success,error) {
-        return this.teacherDAO.remove(id,success,error);
-    };
-
-    update(id,data,success,error) {
-        return this.teacherDAO.update(id,data,success,error);
-    };
-
-    findByUser(idUser,success,error) {
-        return this.teacherDAO.findByUser(idUser,success,error);
-    };
-
-    findPopulate(success, error) {
-        return this.teacherDAO.findPopulate(success, error);
+    findTeacherWithPopulate(success, error) {
+        return this.teacherDAO.findTeacherWithGroups(success, error);
     }
 }
 

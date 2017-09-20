@@ -1,29 +1,11 @@
 import StudentDAO from './StudentDAO';
+import AbstractService from '../AbstractService';
 
-class StudentService {
+class StudentService extends AbstractService {
 
     constructor(Student) {
+        super(new StudentDAO(Student));
         this.studentDAO = new StudentDAO(Student);
-    };
-
-    listAll(success,error) {
-        return this.studentDAO.listAll(success,error);
-    };
-
-    listById(id,success,error) {
-        return this.studentDAO.listById(id,success,error);
-    };
-
-    create(data,success,error) {
-        return this.studentDAO.create(data,success,error);
-    };
-
-    remove(id,success,error) {
-        return this.studentDAO.remove(id,success,error);
-    };
-
-    update(id,data,success,error) {
-        return this.studentDAO.update(id,data,success,error);
     };
 
     findByUser(idUser,success,error) {

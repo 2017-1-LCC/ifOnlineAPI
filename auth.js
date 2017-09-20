@@ -22,7 +22,7 @@ exports.register = (server, options ,next) => {
           return error;
         };
 
-        service.listById(decodedToken.id,success,error);
+        service.findByDecodedToken(decodedToken.id,success,error);
           
       };
 

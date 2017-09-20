@@ -40,6 +40,7 @@ class StudyGroupDAO extends AbstractDAO {
             .done()
     }
 
+    // FALTA IMPLEMENTAR 
     findByTeacher(name,success,error) {
         this.group.find()
             .populate('admin')
@@ -49,7 +50,7 @@ class StudyGroupDAO extends AbstractDAO {
             .catch(error);
     }
 
-    findWithPopulate(id,success,error) {
+    findGroupsFullObject(id,success,error) {
         this.group.findOne({_id:id})
             .populate('admin')
             .populate('students')

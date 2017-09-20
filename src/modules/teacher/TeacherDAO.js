@@ -7,8 +7,8 @@ class TeacherDAO extends AbstractDAO {
         this.teacher = Teacher;
     };
 
-    findByUser(idUser,success,error) {
-        this.teacher.findOne({user:idUser})
+    findTeacherByUser(id,success,error) {
+        this.teacher.findOne({user:id})
             .populate({
                 path:'user'
             })
@@ -23,7 +23,7 @@ class TeacherDAO extends AbstractDAO {
             .catch(error)
     };
 
-    findPopulate(success, error) {
+    findTeacherWithGroups(success, error) {
         this.teacher.find()
             .populate('user',['_id','username'])
             .populate('groups')

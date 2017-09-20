@@ -61,6 +61,18 @@ exports.register = function(server, options ,next) {
         }
     });
 
+    server.route({
+        method: 'GET',
+        path: '/finduserbyusername/{name}',
+        config: {
+            auth:'token',
+             handler: (request, reply) => {
+                callback.findUserByUsername(request, reply, service);
+            }
+        }
+    });
+
+
     return next();
 }
 

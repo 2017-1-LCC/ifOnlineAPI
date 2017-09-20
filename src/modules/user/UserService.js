@@ -1,33 +1,20 @@
 import UserDAO from './UserDAO';
+import AbstractService from '../AbstractService';
 
-class UserService {
+
+class UserService extends AbstractService {
 
     constructor(User) {
+        super(new UserDAO(User));
         this.userDAO = new UserDAO(User);
     };
 
-    listAll(success,error) {
-        return this.userDAO.listAll(success,error);
+    findByDecodedToken(id,success,error) {
+        return this.DAO.listById(id,success,error);
     };
 
-    listById(id,success,error) {
-        return this.userDAO.listById(id,success,error);
-    };
-
-    create(data,success,error) {
-        return this.userDAO.create(data,success,error);
-    };
-
-    remove(id,success,error) {
-        return this.userDAO.remove(id,success,error);
-    };
-
-    update(id,data,success,error) {
-        return this.userDAO.update(id,data,success,error);
-    };
-
-    findByUsername(username,success,error) {
-        return this.userDAO.findByUsername(username,success,error);
+    findUserByUsername(data,success,error) {
+        return this.userDAO.findUserByUsername(data.params.name,success,error);
     }
 }
 

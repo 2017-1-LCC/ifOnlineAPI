@@ -19,11 +19,11 @@ exports.register = function(server, options ,next) {
 
     server.route({
         method: 'GET',
-        path: '/teacherfull',
+        path: '/teacherprofile',
         config: {
             auth:'token',
             handler: (request, reply) => {
-                callback.findPopulate(request,reply,service);
+                callback.findTeacherWithGroups(request,reply,service);
             }
         }
     });
@@ -45,7 +45,7 @@ exports.register = function(server, options ,next) {
         config: {
             auth: false,
             handler: (request, reply) => {
-                callback.findByUser(request,reply,service);
+                callback.findTeacherByUser(request,reply,service);
             }
         }
     });

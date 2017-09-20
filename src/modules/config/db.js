@@ -1,17 +1,17 @@
 const mongoose = require('mongoose')
 
 const localhost = 'mongodb://localhost/ifonline'
-const heroku = 'mongodb://hc3:root@ds025973.mlab.com:25973/sgvdb'
+const heroku = 'mongodb://ifonline:102030@ds025973.mlab.com:25973/sgvdb'
 
 
-mongoose.connect(heroku)
+mongoose.connect(localhost)
 mongoose.Promise = require('bluebird')
 
 const db = mongoose.connection
 
 db.on('error', (err) => console.log('Erro de conexao.', err) )
 db.on('open', () => console.log('Conexão aberta.') )
-db.on('connected', (err) => console.log('Conectado na base: ', heroku) )
+db.on('connected', (err) => console.log('Conectado na base: ', localhost) )
 db.on('disconnected', (err) => console.log('Desconectado') )
 
 export default db;

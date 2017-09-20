@@ -10,55 +10,51 @@ import error from './error';
 * REFATORAR TODOS OS SERVICES
 * ORGANIZAR NOME DAS AÇÕES
 * TROCAR NOME DA PASTA DE CALLBACKS PARA ACTIONS
-
-const makeRequest = ({req, res, service}) => ({
-    find: service.listAll(success(reply),error(reply)),
-    findById: service.listById(request.params.id,success(reply),error(reply)),
-    insert: service.create(request.payload,success(reply),error(reply)),
-    remove: service.remove(request.params.id,success(reply),error(reply)),
-    update: service.update(request.params.id,request.payload,success(reply),error(reply)),
-    createToken: service.createToken(request.payload,sucessToken(reply,request.payload),errorToken(reply)),
-    deleteToken: service.deleteToken(request.payload,sucessToken(reply),errorToken(reply)),
-    findByUser: service.findByUser(request.params.id,success(reply),error(reply)),
-    findGroupsWithPopulate: service.findWithPopulate(request.params.id,success(reply), error(reply)),
-    findGroupsByTeacher: service.findByTeacher(request.params.name, success(reply), error(reply)),
-    findPopulate: service.findPopulate(success(reply),error(reply))
-})
 */
 const obj = {
 
-    find: (request, reply, service) => {
-        service.listAll(success(reply),error(reply));
+    find: (req, res, service) => {
+        service.listAll(success(res),error(res));
     },
-    findById: (request, reply, service) => {
-        service.listById(request.params.id,success(reply),error(reply));
+    findById: (req, res, service) => {
+        service.listById(req,success(res),error(res));
     },
-    insert: (request, reply, service) => {
-        service.create(request.payload,success(reply),error(reply));
+    insert: (req, res, service) => {
+        service.create(req,success(res),error(res));
     },
-    remove: (request, reply, service) => {
-        service.remove(request.params.id,success(reply),error(reply));
+    remove: (req, res, service) => {
+        service.remove(req,success(res),error(res));
     },
-    update: (request, reply, service) => {
-        service.update(request.params.id,request.payload,success(reply),error(reply));
+    update: (req, res, service) => {
+        service.update(req,success(res),error(res));
     },
-    createToken:(request, reply, service) => {
-        service.createToken(request.payload,sucessToken(reply,request.payload),errorToken(reply));
+    createToken:(req, res, service) => {
+        service.createToken(req.payload,sucessToken(res,req.payload),errorToken(res));
     },
-    deleteToken:(request, reply, service) => {
-        service.deleteToken(request.payload,sucessToken(reply),errorToken(reply));
+    deleteToken:(req, res, service) => {
+        service.deleteToken(req.payload,sucessToken(res),errorToken(res));
     },
-    findByUser:(request, reply, service) => {
-        service.findByUser(request.params.id,success(reply),error(reply));
+
+    // USER SERVICE
+    findUserByUsername:(req, res, service) => {
+        service.findUserByUsername(req, success(res), error(res));
     },
-    findGroupsWithPopulate:(request, reply, service) => {
-        service.findWithPopulate(request.params.id,success(reply), error(reply));
+
+
+    // TEACHER SERVICE
+    findTeacherByUser:(req, res, service) => {
+        service.findTeacherByUser(request.params.id,success(reply),error(reply));
     },
-    findGroupsByTeacher:(request, reply, service) => {
-        service.findByTeacher(request.params.name, success(reply), error(reply));
+    findTeacherWithGroups: (req, res, service) => {
+        service.findTeacherWithGroups(success(reply),error(reply));
     },
-    findPopulate: (request, reply, service) => {
-        service.findPopulate(success(reply),error(reply));
+
+    // GROUPS SERVICE 
+    findGroupsFullObject:(req, res, service) => {
+        service.findGroupsFullObject(request.params.id,success(reply), error(reply));
+    },
+    findGroupsByTeacher:(req, res, service) => {
+        service.findGroupsByTeacher(request.params.name, success(reply), error(reply));
     }
 
 }

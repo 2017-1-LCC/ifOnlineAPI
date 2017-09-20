@@ -11,7 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "./node_modules/.bin/babel-node --presets es2015 index.js",
     "start-dev": "nodemon --exec babel-node index.js",
-    "start-tdd": "mocha --opts src/modules/tests/mocha.opts src/modules/tests/studentTest.js",
+    "tdd": "mocha --opts src/modules/tests/mocha.opts src/modules/tests/userTest.js",
     "debug": "babel-node --nolazy --debug-brk=5858 index.js"
   },
   "repository": {

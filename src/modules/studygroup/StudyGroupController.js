@@ -8,6 +8,29 @@ exports.register = function(server, options ,next) {
 
     server.route({
         method: 'GET',
+        path: '/findallinfogroup/{id}',
+        config: {
+            auth:'token',
+            handler: (request, reply) => {
+                callback.findGroupsFullObject(request, reply, service);
+            }
+        }
+    });
+
+    // FALTA IMPLEMENTAR
+    server.route({
+        method: 'GET',
+        path: '/groupsbyteacher/{name}',
+        config: {
+            auth:'token',
+            handler: (request, reply) => {
+                callback.findGroupsByTeacher(request, reply, service);
+            }
+        }
+    });
+
+    server.route({
+        method: 'GET',
         path: '/studygroup',
         config: {
             auth:'token',
@@ -28,27 +51,6 @@ exports.register = function(server, options ,next) {
         }
     });
 
-    server.route({
-        method: 'GET',
-        path: '/studygroup/{id}',
-        config: {
-            auth:'token',
-            handler: (request, reply) => {
-                callback.findGroupsWithPopulate(request, reply, service);
-            }
-        }
-    });
-
-    server.route({
-        method: 'GET',
-        path: '/groupsbyteacher/{name}',
-        config: {
-            auth:'token',
-            handler: (request, reply) => {
-                callback.findGroupsByTeacher(request, reply, service);
-            }
-        }
-    });
 
     server.route({
         method: 'DELETE',
