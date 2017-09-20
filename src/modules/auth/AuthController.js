@@ -1,4 +1,4 @@
-import callback from '../utils/callbacks';
+import action from '../actions/actions';
 import AuthService from './AuthService';
 
 exports.register = function(server, options, next) {
@@ -9,7 +9,7 @@ exports.register = function(server, options, next) {
         method:'POST',
         path:'/login',
         handler:(request, reply) => {
-            callback.createToken(request,reply,service);
+            action.createToken(request,reply,service);
         }
     });
 
@@ -17,7 +17,7 @@ exports.register = function(server, options, next) {
         method:'POST',
         path:'/logout',
         handler:(request, reply) => {
-            calllback.deleteToken(request,reply,service);
+            action.deleteToken(request,reply,service);
         }
     });
 };

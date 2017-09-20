@@ -1,6 +1,5 @@
 import TeacherService from './TeacherService';
-import Teacher from './Teacher';
-import callback from '../utils/callbacks';
+import action from '../actions/actions';
 
 exports.register = function(server, options ,next) {
 
@@ -12,7 +11,7 @@ exports.register = function(server, options ,next) {
         config: {
             auth:'token',
             handler: (request, reply) => {
-                callback.find(request,reply,service);
+                action.find(request,reply,service);
             }
         }
     });
@@ -23,7 +22,7 @@ exports.register = function(server, options ,next) {
         config: {
             auth:'token',
             handler: (request, reply) => {
-                callback.findTeacherWithGroups(request,reply,service);
+                action.findTeacherWithGroups(request,reply,service);
             }
         }
     });
@@ -34,7 +33,7 @@ exports.register = function(server, options ,next) {
         config: {
             auth:'token',
             handler: (request, reply) => {
-                callback.insert(request, reply, service);
+                action.insert(request, reply, service);
             }
         }
     });
@@ -45,7 +44,7 @@ exports.register = function(server, options ,next) {
         config: {
             auth: false,
             handler: (request, reply) => {
-                callback.findTeacherByUser(request,reply,service);
+                action.findTeacherByUser(request,reply,service);
             }
         }
     });
@@ -56,7 +55,7 @@ exports.register = function(server, options ,next) {
         config: {
             auth:'token',
             handler: (request, reply) => {
-                callback.findById(request, reply, service);
+                action.findById(request, reply, service);
             }
         }
     });
@@ -67,7 +66,7 @@ exports.register = function(server, options ,next) {
         config: {
             auth:'token',
             handler: (request, reply) => {
-                callback.remove(request, reply, service);
+                action.remove(request, reply, service);
             }
         }
     });
@@ -78,7 +77,7 @@ exports.register = function(server, options ,next) {
         config: {
             auth:'token',
             handler: (request, reply) => {
-                callback.update(request, reply, service);
+                action.update(request, reply, service);
             }
         }
     });
