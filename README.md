@@ -25,12 +25,12 @@ por enquanto é só.. hehe.<p>
 - Mocha + Chai + Supertest
 - para executar os testes é só rodar:
 ````
-npm run start-tdd
+npm run tdd
 ````
 - [x] - STUDENT [ INICIANDO IMPLEMENTAÇÃO DOS TESTES ]
 - [ ] - STUDY GROUP.
 - [ ] - TEACHER.
-- [ ] - USER.
+- [x] - USER.
 
 # Rodando a API
 
