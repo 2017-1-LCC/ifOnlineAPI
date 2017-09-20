@@ -29,7 +29,7 @@ npm run tdd
 ````
 - [x] - STUDENT [ INICIANDO IMPLEMENTAÇÃO DOS TESTES ]
 - [ ] - STUDY GROUP.
-- [ ] - TEACHER.
+- [x] - TEACHER.
 - [x] - USER.
 
 # Rodando a API
