@@ -8,8 +8,8 @@ class StudentService extends AbstractService {
         this.studentDAO = new StudentDAO(Student);
     };
 
-    findByUser(idUser,success,error) {
-        return this.studentDAO.findByUser(idUser,success,error);
+    findStudentByUser(idUser,success,error) {
+        return this.studentDAO.findStudentByUser(idUser,success,error);
     };
 }
 

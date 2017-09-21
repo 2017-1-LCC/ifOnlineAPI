@@ -12,7 +12,7 @@ import error from './error';
 * TROCAR NOME DA PASTA DE CALLBACKS PARA ACTIONS
 */
 const obj = {
-
+    // COMMON FOR ALL -------------------------------------------------------------------------------
     find: (req, res, service) => {
         service.listAll(success(res),error(res));
     },
@@ -34,14 +34,30 @@ const obj = {
     deleteToken:(req, res, service) => {
         service.deleteToken(req.payload,sucessToken(res),errorToken(res));
     },
+    // ---------------------------------------------------------------------------------------------
 
-    // USER SERVICE
+    
+
+
+    // USER SERVICE --------------------------------------------------------------------------------
     findUserByUsername:(req, res, service) => {
         service.findUserByUsername(req, success(res), error(res));
     },
 
+    // ---------------------------------------------------------------------------------------------
 
-    // TEACHER SERVICE
+
+
+    // STUDENT SERVICE -----------------------------------------------------------------------------
+    findStudentByUser:(req, res, service) => {
+        service.findStudentByUser(req,success(res),error(res));
+    },
+
+    // ---------------------------------------------------------------------------------------------
+
+
+
+    // TEACHER SERVICE -----------------------------------------------------------------------------
     findTeacherByUser:(req, res, service) => {
         service.findTeacherByUser(req,success(res),error(res));
     },
@@ -49,7 +65,11 @@ const obj = {
         service.findTeacherWithGroups(success(res),error(res));
     },
 
-    // GROUPS SERVICE 
+    // ---------------------------------------------------------------------------------------------
+
+
+
+    // GROUPS SERVICE -------------------------------------------------------------------------------
     findGroupsFullObject:(req, res, service) => {
         service.findGroupsFullObject(request.params.id,success(reply), error(reply));
     },
@@ -62,7 +82,7 @@ const obj = {
     removeStudentOnGroup:(req, res, service) => {
         service.removeStudentOnGroup(req, success(res), error(res));
     }
-
+    // -----------------------------------------------------------------------------------------------
 }
 
 export default obj;

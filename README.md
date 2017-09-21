@@ -28,7 +28,7 @@ por enquanto é só.. hehe.<p>
 npm run tdd
 ````
 - [x] - STUDENT [ INICIANDO IMPLEMENTAÇÃO DOS TESTES ]
-- [ ] - STUDY GROUP.
+- [x] - STUDY GROUP.
 - [x] - TEACHER.
 - [x] - USER.
 

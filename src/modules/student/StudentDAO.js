@@ -7,7 +7,7 @@ class StudentDAO extends AbstractDAO {
         this.student = Student;
     };
 
-    findByUser(idUser,success,error) {
+    findStudentByUser(idUser,success,error) {
         this.student.findOne({user:idUser})
             .populate({
                 path:'user'

@@ -24,7 +24,7 @@ exports.register = function(server, options ,next) {
         config: {
             auth: typeAuth,
             handler: (request, reply) => {
-                action.findByUser(request,reply,service);
+                action.findStudentByUser(request,reply,service);
             }
         }
     });

@@ -2,9 +2,11 @@ import AbstractDAO from '../AbstractDAO';
 
 class UserDAO extends AbstractDAO {
 
-    constructor(User) {
+    constructor(User, Student, Teacher) {
         super(User);
         this.user = User;
+        this.student = Student;
+        this.teacher = Teacher;
     };
 
     findUserByUsername(username,success,error) {
