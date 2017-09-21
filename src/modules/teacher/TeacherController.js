@@ -1,8 +1,9 @@
 import TeacherService from './TeacherService';
+import Teacher from './Teacher';
 import action from '../actions/actions';
 
 exports.register = function(server, options ,next) {
-
+    
     const service = new TeacherService(server.app.db.models.teacher);
 
     server.route({

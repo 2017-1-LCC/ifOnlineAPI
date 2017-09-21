@@ -1,4 +1,5 @@
 import UserService from './UserService';
+import User from './User';
 import action from '../actions/actions';
 
 exports.register = function(server, options ,next) {

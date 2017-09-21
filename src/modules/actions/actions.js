@@ -55,6 +55,12 @@ const obj = {
     },
     findGroupsByTeacher:(req, res, service) => {
         service.findGroupsByTeacher(request.params.name, success(reply), error(reply));
+    },
+    addStudentOnGroup:(req, res, service) => {
+        service.addStudentOnGroup(req, success(res), error(res));
+    },
+    removeStudentOnGroup:(req, res, service) => {
+        service.removeStudentOnGroup(req, success(res), error(res));
     }
 
 }

@@ -1,4 +1,5 @@
 import StudentService from './StudentService';
+import Student from './Student';
 import action from '../actions/actions';
 
 exports.register = function(server, options ,next) {

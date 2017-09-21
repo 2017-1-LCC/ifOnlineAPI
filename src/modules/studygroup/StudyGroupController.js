@@ -1,9 +1,15 @@
 import StudyGroupService from './StudyGroupService';
+import Studygroup from './StudyGroup';
+import Teacher from '../teacher/Teacher';
+import Student from '../student/Student';
 import action from '../actions/actions';
 
 exports.register = function(server, options ,next) {
+    const studygroup = server.app.db.models.studygroup;
+    const teacher = server.app.db.models.teacher;
+    const student = server.app.db.models.student;
 
-    const service = new StudyGroupService(server.app.db.models.studygroup,server.app.db.models.teacher);
+    const service = new StudyGroupService(studygroup,teacher,student);
 
     server.route({
         method: 'GET',
@@ -46,6 +52,28 @@ exports.register = function(server, options ,next) {
             auth:'token',
             handler: (request, reply) => {
                 action.insert(request, reply, service);
+            }
+        }
+    });
+
+    server.route({
+        method: 'POST',
+        path: '/add/{idStudent}/ingroup/{idGroup}',
+        config: {
+            auth:'token',
+            handler: (request, reply) => {
+                action.addStudentOnGroup(request, reply, service);
+            }
+        }
+    });
+
+    server.route({
+        method: 'POST',
+        path: '/remove/{idStudent}/ingroup/{idGroup}',
+        config: {
+            auth:'token',
+            handler: (request, reply) => {
+                action.removeStudentOnGroup(request, reply, service);
             }
         }
     });
