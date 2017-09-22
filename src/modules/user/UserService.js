@@ -10,21 +10,21 @@ class UserService extends AbstractService {
     };
 
     create(data,success,error) {
+        // APLICAR VALIDAÇÃO AO CRIAR NOVO USUÁRIO
         const user = {
-            username:'',
-            password:'',
-            typeUser:''
+            username:data.payload.username,
+            password:data.payload.password,
+            typeUser:data.payload.typeUser
         };
 
         const other = {
-            name:'',
-            birthDate:'',
-            email:'',
-            user:'',
+            name:data.payload.name,
+            birthDate:data.payload.birthDate,
+            email:data.payload.email,
+            user:null,
             groups:[]
         }
-
-        return this.userDAO.create(data.payload,success,error);
+        return this.userDAO.create(user,other,success,error);
     };
 
     findByDecodedToken(id,success,error) {

@@ -12,7 +12,7 @@
     "start": "./node_modules/.bin/babel-node --presets es2015 index.js",
     "start-dev": "nodemon --exec babel-node index.js",
     "tdd": "mocha --opts src/modules/tests/mocha.opts src/modules/tests/*.js",
-    "debug": "babel-node --nolazy --debug-brk=5858 index.js"
+    "debug": "babel-node --nolazy --inspect=5858 index.js"
   },
   "repository": {
     "type": "git",
@@ -35,6 +35,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-register": "^6.26.0",
     "chai": "^4.1.1",
     "mocha": "^3.5.0",
     "supertest": "^3.0.0"

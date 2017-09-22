@@ -35,28 +35,6 @@ exports.register = function(server, options ,next) {
     });
 
     server.route({
-        method: 'GET',
-        path: '/studygroup',
-        config: {
-            auth:'token',
-            handler: (request, reply) => {
-                action.find(request,reply,service);
-            }
-        }
-    });
-
-    server.route({
-        method: 'POST',
-        path: '/studygroup',
-        config: {
-            auth:'token',
-            handler: (request, reply) => {
-                action.insert(request, reply, service);
-            }
-        }
-    });
-
-    server.route({
         method: 'POST',
         path: '/add/{idStudent}/ingroup/{idGroup}',
         config: {
@@ -78,6 +56,27 @@ exports.register = function(server, options ,next) {
         }
     });
 
+    server.route({
+        method: 'GET',
+        path: '/studygroup',
+        config: {
+            auth:'token',
+            handler: (request, reply) => {
+                action.find(request,reply,service);
+            }
+        }
+    });
+
+    server.route({
+        method: 'POST',
+        path: '/studygroup',
+        config: {
+            auth:'token',
+            handler: (request, reply) => {
+                action.insert(request, reply, service);
+            }
+        }
+    });
 
     server.route({
         method: 'DELETE',

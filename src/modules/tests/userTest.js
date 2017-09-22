@@ -5,7 +5,12 @@ describe("## TESTANDO FUNCIONALIDADES DO USUÁRIO", () => {
   const defaultObj = {
     username:'teste01',
     password:'teste',
-    typeUser:'STUDENT'
+    typeUser:'STUDENT',
+    name:"Eliel das Virgens",
+    birthDate:"2017-09-21",
+    email:"eliel.floyd@bol.com.br",
+    user:"",
+    groups:[]
   };
 
   let id, token, secondID;
@@ -20,10 +25,7 @@ describe("## TESTANDO FUNCIONALIDADES DO USUÁRIO", () => {
       Server.inject({
         method:"POST",
         url:"/user",
-        payload: JSON.stringify({
-          username:defaultObj.username,
-          password:defaultObj.password
-        })
+        payload: JSON.stringify(defaultObj)
       },res => {
         id = res.result._id;
         done();

@@ -1,10 +1,16 @@
 import UserService from './UserService';
 import User from './User';
+import Teacher from '../teacher/Teacher';
+import Student from '../student/Student';
 import action from '../actions/actions';
 
 exports.register = function(server, options ,next) {
 
-    const service = new UserService(server.app.db.models.user);
+    const user = server.app.db.models.user
+    const student = server.app.db.models.student
+    const teacher = server.app.db.models.teacher
+
+    const service = new UserService(user,student,teacher);
 
     server.route({
         method: 'GET',

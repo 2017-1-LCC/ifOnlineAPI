@@ -9,6 +9,24 @@ class UserDAO extends AbstractDAO {
         this.teacher = Teacher;
     };
 
+    create(user,other,success,error) {
+        this.user.create(user)
+            .then(inseredUser => {
+                other.user = inseredUser._id
+                if(inseredUser.typeUser === 'STUDENT') {
+                    this.student.create(other)
+                        .then(success)
+                        .catch(error)
+                } else {
+                    this.teacher.create(other)
+                        .then(success)
+                        .catch(error)
+                }
+            })
+            .catch(error)
+            .done()
+    };
+
     findUserByUsername(username,success,error) {
         this.user.find({username:username})
             .exec()

@@ -32,6 +32,14 @@ npm run tdd
 - [x] - TEACHER.
 - [x] - USER.
 
+# Notas sobre a versão
+
+- [x] - FAZER A LIGAÇÃO ENTRE USUÁRIO E ESTUDANTE OU PROESSOR.
+- [x] - AO CRIAR GRUPO FAZER A LIGAÇÃÇO ENTRE PROFESSOR E GRUPO.
+- [x] - ALUNO ENTRA NO GRUPO.
+- [x] - ALUNO SAI DO GRUPO.
+- [ ] - REFAZER TESTES COM A NOVA MODELAGEM DE USER.
+
 # Rodando a API
 
 Para consegui testar essa API é preciso ter o mongodb instalado na maquina segue um link com um tutorial como instalar o mongodb:
