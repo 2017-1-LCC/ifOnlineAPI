@@ -11,7 +11,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "./node_modules/.bin/babel-node --presets es2015 index.js",
     "start-dev": "nodemon --exec babel-node index.js",
-    "tdd": "mocha --opts src/modules/tests/mocha.opts src/modules/tests/*.js",
+    "tdd": "mocha --opts src/modules/tests/mocha.opts src/modules/tests/integration.js",
     "debug": "babel-node --nolazy --inspect=5858 index.js"
   },
   "repository": {
@@ -41,15 +41,16 @@
     "supertest": "^3.0.0"
   },
   "dependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
     "bcrypt": "^1.0.2",
     "bluebird": "^3.5.0",
     "hapi": "^16.5.2",
     "hapi-auth-basic": "^4.2.0",
     "hapi-auth-cookie": "^7.0.0",
     "hapi-auth-jwt": "^4.0.0",
+    "hapi-authorization": "^3.0.3",
     "jwt-simple": "^0.5.1",
-    "mongoose": "^4.8.7",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-cli": "^6.24.1"
+    "mongoose": "^4.8.7"
   }
 }

@@ -44,6 +44,10 @@ const obj = {
         service.findUserByUsername(req, success(res), error(res));
     },
 
+    removeWithDependecy:(req, res , service) => {
+        service.removeWithDependecy(req, success(res), error(res));
+    },
+
     // ---------------------------------------------------------------------------------------------
 
 

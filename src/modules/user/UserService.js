@@ -27,6 +27,10 @@ class UserService extends AbstractService {
         return this.userDAO.create(user,other,success,error);
     };
 
+    removeWithDependecy(idUser, success, error) {
+        return this.userDAO.removeWithDependecy(idUser, success, error);
+    }
+
     findByDecodedToken(id,success,error) {
         return this.userDAO.listById(id,success,error);
     };

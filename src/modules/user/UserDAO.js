@@ -27,6 +27,33 @@ class UserDAO extends AbstractDAO {
             .done()
     };
 
+    removeWithDependecy(idUser, success, error) {
+        const queryUser = {_id:idUser};
+        this.user.findOne(queryUser)
+            .exec()
+            .then(user => {
+                if(user.typeUser === 'STUDENT') {
+                    user.remove();
+                    this.student.findOne({user:idUser})
+                        .exec()
+                        .then(student => {
+                            student.remove();
+                        })
+                        .catch(error)
+                } else {
+                    user.remove();
+                    this.teacher.findOne({user:idUser})
+                        .exec()
+                        .then(teacher => {
+                            teacher.remove();
+                        })
+                        .catch(error)
+                }
+            })
+            .catch(error)
+            .done()
+    };
+
     findUserByUsername(username,success,error) {
         this.user.find({username:username})
             .exec()
