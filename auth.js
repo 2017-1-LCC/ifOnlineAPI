@@ -1,8 +1,20 @@
 import UserService from './src/modules/user/UserService';
 import Bcrypt from 'bcrypt';
 
+var plugins = [
+    {
+        register: require('hapi-auth-jwt')
+    },
+    {
+        register: require('hapi-authorization'),
+        options: {
+            roles: ['STUDENT', 'TEACHER']
+        }
+    }
+];
+
 exports.register = (server, options ,next) => {
-  server.register(require('hapi-auth-jwt'),(err) => {
+  server.register(plugins,(err) => {
 
       if(err) throw err;
 

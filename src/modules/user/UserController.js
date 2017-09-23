@@ -51,7 +51,7 @@ exports.register = function(server, options ,next) {
         config: {
             auth:'token',
             handler: (request, reply) => {
-                action.remove(request, reply, service);
+                action.removeWithDependecy(request, reply, service);
             }
         }
     });

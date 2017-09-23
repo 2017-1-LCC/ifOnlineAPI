@@ -60,7 +60,10 @@ exports.register = function(server, options ,next) {
         method: 'GET',
         path: '/studygroup',
         config: {
-            auth:'token',
+            auth:{
+                strategy:'token',
+                scope:['TEACHER']    
+            },
             handler: (request, reply) => {
                 action.find(request,reply,service);
             }
