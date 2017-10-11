@@ -11,7 +11,7 @@ const obj = new Schema({
         type:String,
         require:true
     },
-    // turma exemplo 2017.1
+    // turma exemplo 2017.1 esse campo sai e vai para o student
     academicClass: {
         type:String,
         require:true

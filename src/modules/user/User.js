@@ -27,7 +27,7 @@ UserSchema
     return this.constructor.findOne({ username: value })
       .then(function(user) {
         if (user) {
-          if (self.id === user.id) {
+          if (self._id === user._id) {
             return respond(true);
           }
           return respond(false);
