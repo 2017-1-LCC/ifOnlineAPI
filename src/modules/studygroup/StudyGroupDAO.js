@@ -88,6 +88,14 @@ class StudyGroupDAO extends AbstractDAO {
             .catch(error);
     }
 
+    listAll(success,error) {
+        this.Model.find()
+            .populate('admin',{name:1,email:1})
+            .exec()
+            .then(success)
+            .catch(error);
+    };
+
 }
 
 export default StudyGroupDAO;

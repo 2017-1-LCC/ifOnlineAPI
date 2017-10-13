@@ -17,6 +17,10 @@ const UserSchema = new Schema({
     type:String,
     enum:['STUDENT','TEACHER'],
     require:true
+  },
+  avatar: {
+    data:Buffer,
+    contentType:String
   }
 });
 
