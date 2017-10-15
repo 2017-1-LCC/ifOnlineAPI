@@ -75,10 +75,10 @@ const obj = {
 
     // GROUPS SERVICE -------------------------------------------------------------------------------
     findGroupsFullObject:(req, res, service) => {
-        service.findGroupsFullObject(request.params.id,success(reply), error(reply));
+        service.findGroupsFullObject(req,success(res), error(res));
     },
     findGroupsByTeacher:(req, res, service) => {
-        service.findGroupsByTeacher(request.params.name, success(reply), error(reply));
+        service.findGroupsByTeacher(req, success(res), error(res));
     },
     addStudentOnGroup:(req, res, service) => {
         service.addStudentOnGroup(req, success(res), error(res));

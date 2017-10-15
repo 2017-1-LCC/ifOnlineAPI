@@ -23,6 +23,10 @@ class StudentService {
   getToken() {
     
   }
+
+  removeToken() {
+    
+  }
 }
 
 export default StudentService;

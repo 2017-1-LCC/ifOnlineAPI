@@ -1,1 +1,1 @@
-export default (reply) => (err) => reply(Object.assign({type: 'error'}, err))
+export default (reply) => (err) => reply(err)
