@@ -23,6 +23,22 @@ class StudyGroupDAO extends AbstractDAO {
             .done()
     }
 
+    addProofOnGroup(idGroup, proof, success, error) {
+        const group = {'_id':idGroup}
+        const addProof = {$push:{'proof':proof}}
+        this.group.update(group, addProof)
+            .then(success)
+            .catch(error)
+    }
+    
+    removeProofOnGroup(idGroup, proof, success, error) {
+        const group = {'_id':idGroup}
+        const removeProof = {$pull:{'proof':proof}}
+        this.group.update(group, removeProof)
+            .then(success)
+            .catch(error)
+    }
+
     addStudentOnGroup(idStudent, idGroup, success, error) {
         const group = {'_id':idGroup}
         const student = {'_id':idStudent}

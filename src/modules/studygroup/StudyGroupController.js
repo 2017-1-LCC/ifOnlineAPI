@@ -35,6 +35,28 @@ exports.register = function(server, options ,next) {
     });
 
     server.route({
+        method:'POST',
+        path:'/addProof/{idGroup}',
+        config:{
+            auth:'token',
+            handler:(request, reply) => {
+                action.addProofOnGroup(request, reply, service);
+            }
+        }
+    })
+
+    server.route({
+        method:'POST',
+        path:'/removeProof/{idGroup}',
+        config:{
+            auth:'token',
+            handler:(request, reply) => {
+                action.removeProofOnGroup(request, reply, service);
+            }   
+        }
+    })
+
+    server.route({
         method: 'POST',
         path: '/add/{idStudent}/ingroup/{idGroup}',
         config: {
