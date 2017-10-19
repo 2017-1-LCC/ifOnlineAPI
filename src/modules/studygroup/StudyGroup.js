@@ -11,6 +11,10 @@ const obj = new Schema({
         type:String,
         require:true
     },
+    description: {
+        type:String,
+        require:true
+    },
     // turma exemplo 2017.1 esse campo sai e vai para o student
     academicClass: {
         type:String,
@@ -30,9 +34,14 @@ const obj = new Schema({
         type:Schema.Types.ObjectId,
         ref:'student'
     }],
+    classSchedule: [{
+        dayOfWeek:String,
+        startTime:Date,
+        endTime:Date
+    }],
     // prova
     proof: [{
-        subjects:String,
+        subjects:[String],
         dateProof:Date,
         value:Number
     }]
