@@ -36,12 +36,12 @@ const obj = new Schema({
     }],
     classSchedule: [{
         dayOfWeek:String,
-        startTime:Date,
-        endTime:Date
+        startTime:String,
+        endTime:String
     }],
     // prova
     proof: [{
-        subjects:[String],
+        subjects:String,
         dateProof:Date,
         value:Number
     }]
