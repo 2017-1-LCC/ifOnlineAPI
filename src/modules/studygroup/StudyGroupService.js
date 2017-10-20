@@ -39,6 +39,10 @@ class StudyGroupService extends AbstractService {
         const idGroup = data.params.idGroup;
         return this.studyGroupDAO.removeStudentOnGroup(idStudent, idGroup, success, error);
     }
+
+    updateStudyGroup() {
+        
+    }
 }
 
 export default StudyGroupService;
