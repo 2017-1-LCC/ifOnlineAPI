@@ -10,8 +10,6 @@ class StudyGroupDAO extends AbstractDAO {
     }
 
     create(data,success,error) {
-        data.classSchedule = data.classSchedule.filter(el => !el.removed );
-        data.proof = data.proof.filter(el => !el.removed );
         this.group.create(data)
             .then(success)
             .then(group => {
