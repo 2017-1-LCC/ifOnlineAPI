@@ -33,7 +33,7 @@ class AbstractDAO {
     };
 
     update(data,success,error) {
-        const query = {_id:data.id};
+        const query = {_id:data._id};
         this.Model.findOneAndUpdate(query,data)
             .then(success)
             .catch(error);

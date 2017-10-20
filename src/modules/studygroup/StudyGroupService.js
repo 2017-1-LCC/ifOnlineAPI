@@ -8,6 +8,16 @@ class StudyGroupService extends AbstractService {
         this.studyGroupDAO = new StudyGroupDAO(StudyGroup, Teacher, Student);
     };
 
+    update(data, success, error) {
+        if(data.payload.classSchedule) {
+            data.payload.classSchedule = data.payload.classSchedule.filter(el => !el.removed );
+        }
+        if(data.payload.proof) {
+            data.payload.proof = data.payload.proof.filter(el => !el.removed );
+        }
+        return this.DAO.update(data.payload,success,error)
+    }
+
     create(data,success,error) {
         if(data.payload.classSchedule) {
             data.payload.classSchedule = data.payload.classSchedule.filter(el => !el.removed );
