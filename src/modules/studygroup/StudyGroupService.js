@@ -36,18 +36,6 @@ class StudyGroupService extends AbstractService {
         return this.studyGroupDAO.findByTeacher(name, success, error);
     }
 
-    addProofOnGroup(data, success, error) {
-        const idGroup = data.params.idGroup;
-        const proof = data.payload;
-        return this.studyGroupDAO.addProofOnGroup(idGroup, proof, success, error);
-    }
-
-    removeProofOnGroup(data, success, error) {
-        const idGroup = data.params.idGroup;
-        const proof = data.payload;
-        return this.studyGroupDAO.addProofOnGroup(idGroup, proof, success, error);
-    }
-
     addStudentOnGroup(data, success, error) {
         const idStudent = data.params.idStudent;
         const idGroup = data.params.idGroup;
@@ -59,10 +47,7 @@ class StudyGroupService extends AbstractService {
         const idGroup = data.params.idGroup;
         return this.studyGroupDAO.removeStudentOnGroup(idStudent, idGroup, success, error);
     }
-
-    updateStudyGroup() {
-
-    }
+    
 }
 
 export default StudyGroupService;

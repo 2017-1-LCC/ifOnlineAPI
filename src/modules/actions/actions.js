@@ -85,12 +85,6 @@ const obj = {
     },
     removeStudentOnGroup:(req, res, service) => {
         service.removeStudentOnGroup(req, success(res), error(res));
-    },
-    addProofOnGroup:(req, res, service) => {
-        service.addProofOnGroup(req, success(res), error(res));
-    },
-    removeProofOnGroup:(req, res, service) => {
-        service.removeProofOnGroup(req, success(res), error(res));
     }
     // -----------------------------------------------------------------------------------------------
 }
