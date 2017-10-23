@@ -6,8 +6,6 @@ export default (reply, data) => (user) => {
       const payload = {idUser:user._id,typeUser:user.typeUser};
       const resposta = {
         token:jwt.encode(payload,'secret'),
-        //idUser:user._id,
-        //typeUser:user.typeUser
       }
       reply(resposta);
     } else{

@@ -7,7 +7,8 @@ const SALT_WORK_FACTOR = 10;
 const UserSchema = new Schema({
   username: {
     type:String,
-    require:true
+    require:true,
+    unique:true
   },
   password: {
     type:String,
