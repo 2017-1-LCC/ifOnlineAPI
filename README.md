@@ -19,7 +19,10 @@ por enquanto é só.. hehe.<p>
 - [x] - REMOVER DADOS NO BANCO.
 
 # IDEIA DA API
-- A ideia aqui é primeiramente ter um local para o aluno poder criar grupos de estudos compartilhados, 
+- A ideia aqui é primeiramente ter um local para o aluno poder criar grupos de estudos compartilhados.
+
+# IDEIAS PARA IMPLEMENTAÇÃO FUTURA
+- O aluno que tiver uma boa média em relação às notas, poderá criar grupos
 
 # TDD ( Testes de integração )
 - Mocha + Chai + Supertest
