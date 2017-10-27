@@ -9,6 +9,23 @@ class UserService extends AbstractService {
         this.userDAO = new UserDAO(User, Student, Teacher);
     };
 
+    update(data,success,error) {
+        // APLICAR VALIDAÇÃO AO CRIAR NOVO USUÁRIO
+        const user = {
+            _id:data.payload._id,
+            username:data.payload.username
+        };
+
+        const other = {
+            _id:data.payload.idOther,
+            name:data.payload.name,
+            birthDate:data.payload.birthDate,
+            email:data.payload.email
+        };
+
+        return this.userDAO.update(user,other,success,error);
+    };
+
     create(data,success,error) {
         // APLICAR VALIDAÇÃO AO CRIAR NOVO USUÁRIO
         const user = {
