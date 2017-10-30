@@ -13,7 +13,8 @@ class UserService extends AbstractService {
         // APLICAR VALIDAÇÃO AO CRIAR NOVO USUÁRIO
         const user = {
             _id:data.payload._id,
-            username:data.payload.username
+            username:data.payload.username,
+            avatar:data.payload.avatar
         };
 
         const other = {
