@@ -14,7 +14,8 @@ class UserService extends AbstractService {
         const user = {
             _id:data.payload._id,
             username:data.payload.username,
-            avatar:data.payload.avatar
+            avatar:data.payload.avatar,
+            typeUser:data.payload.typeUser
         };
 
         const other = {
