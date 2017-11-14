@@ -4,9 +4,14 @@ import bcrypt from 'bcrypt';
 
 const SALT_WORK_FACTOR = 10;
 
+function toLower (v) {
+  return v.toLowerCase();
+}
+
 const UserSchema = new Schema({
   username: {
     type:String,
+    set: toLower,
     require:true,
     unique:true
   },
