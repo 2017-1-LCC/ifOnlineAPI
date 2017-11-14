@@ -37,16 +37,28 @@ const obj = new Schema({
     classSchedule: [{
         dayOfWeek:String,
         startTime:String,
-        endTime:String
+        endTime:String,
+        removed:Boolean
     }],
     // prova
     proof: [{
         subjects:String,
         dateProof:Date,
-        value:Number
+        value:Number,
+        removed:Boolean
     }]
 
 });
+
+
+obj.pre('findOneAndUpdate',function(next) {
+    var group = this;
+    //console.log("to aqui",group._update.classSchedule);
+    group._update.classSchedule = group._update.classSchedule.filter(el => !el.removed );
+    group._update.proof = group._update.proof.filter(el => !el.removed );
+    
+    next();
+})
 
 /*
 
