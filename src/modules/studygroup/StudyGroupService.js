@@ -9,14 +9,6 @@ class StudyGroupService extends AbstractService {
     };
 
     update(data, success, error) {
-        /*
-        if(data.payload.classSchedule) {
-            data.payload.classSchedule = data.payload.classSchedule.filter(el => !el.removed );
-        }
-        if(data.payload.proof) {
-            data.payload.proof = data.payload.proof.filter(el => !el.removed );
-        }
-        */
         return this.DAO.update(data.payload,success,error)
     }
 
@@ -25,8 +17,13 @@ class StudyGroupService extends AbstractService {
         if(data.payload.classSchedule) {
             data.payload.classSchedule = data.payload.classSchedule.filter(el => !el.removed );
         }
+
         if(data.payload.proof) {
             data.payload.proof = data.payload.proof.filter(el => !el.removed );
+        }
+
+        if(date.payload.scheduledActivity) {
+            data.payload.scheduledActivity = data.payload.scheduledActivity.filter(el => !el.removed );
         }
     
         return this.DAO.create(data.payload,success,error);

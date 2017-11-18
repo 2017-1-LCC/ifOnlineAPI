@@ -46,8 +46,14 @@ const obj = new Schema({
         dateProof:Date,
         value:Number,
         removed:Boolean
+    }],
+    //atividade programada
+    scheduledActivity: [{
+        description:String,
+        sendDate:Date,
+        deliveryDate:Date,
+        removed:Boolean
     }]
-
 });
 
 
