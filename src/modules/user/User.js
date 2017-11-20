@@ -34,7 +34,7 @@ UserSchema
   .path('username')
   .validate(function(value, respond) {
     var self = this;
-    return this.constructor.findOne({ username: value })
+    return this.constructor.findOne({ username: toLower(value) })
       .then(function(user) {
         if (user) {
           if (self._id === user._id) {
@@ -48,6 +48,7 @@ UserSchema
         throw err;
       });
   }, 'esse login já está em uso.');
+
 
 UserSchema.pre('save', function(next) {
   var user = this;
