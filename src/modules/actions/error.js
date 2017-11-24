@@ -1,8 +1,8 @@
 export default (reply) => (err) => {
   if(err.errors.username) {
-    return reply(JSON.parse(err.errors.username.message.toString()));
+    return reply(err.errors.username.message);
   } else if(err.errors.email) {
-    return reply(JSON.parse(err.errors.email.message));
+    return reply(err.errors.email.message);
   } else {
     return reply(err);
   }
