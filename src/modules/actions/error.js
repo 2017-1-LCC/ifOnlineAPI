@@ -1,10 +1,21 @@
+ let errorMessage = {
+   message:'',
+   error:true
+ };
+
 export default (reply) => (err) => {
+
   if(err.errors.username) {
-    return reply(err.errors.username.message);
+    errorMessage.message = err.errors.username.message;
+    return reply(errorMessage);
+
   } else if(err.errors.email) {
-    return reply(err.errors.email.message);
+    errorMessage.message = err.errors.username.message;
+    return reply(errorMessage);
+
   } else {
-    return reply(err);
+    errorMessage.message = "Erro desconhecido.";
+    return reply(errorMessage);
   }
-  //reply(err.errors.username.message);
+  
 }
