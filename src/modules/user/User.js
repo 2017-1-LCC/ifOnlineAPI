@@ -15,6 +15,12 @@ const UserSchema = new Schema({
     require:true,
     unique:true
   },
+  email: {
+    type:String,
+    set: toLower,
+    require:true,
+    unique:true
+  },
   password: {
     type:String,
     require:true
@@ -48,6 +54,25 @@ UserSchema
         throw err;
       });
   }, 'esse login já está em uso.');
+
+  UserSchema
+  .path('email')
+  .validate(function(value, respond) {
+    var self = this;
+    return this.constructor.findOne({ email: toLower(value) })
+      .then(function(user) {
+        if (user) {
+          if (self._id === user._id) {
+            return respond(true);
+          }
+          return respond(false);
+        }
+        return respond(true);
+      })
+      .catch(function(err) {
+        throw err;
+      });
+  }, 'esse E-mail já está em uso.');
 
 
 UserSchema.pre('save', function(next) {

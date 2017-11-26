@@ -13,12 +13,6 @@ const TeacherSchema = new Schema({
     birthDate: {
         type:Date
     },
-    email: {
-        type:String,
-        set: toLower,
-        require:true,
-        unique:true
-    },
     user:{
         type:Schema.Types.ObjectId,
         ref:'user'
@@ -29,24 +23,5 @@ const TeacherSchema = new Schema({
     }]
 
 });
-
-TeacherSchema
-  .path('email')
-  .validate(function(value, respond) {
-    var self = this;
-    return this.constructor.findOne({ email: toLower(value) })
-      .then(function(teacher) {
-        if (teacher) {
-          if (self._id === teacher._id) {
-            return respond(true);
-          }
-          return respond(false);
-        }
-        return respond(true);
-      })
-      .catch(function(err) {
-        throw err;
-      });
-  }, 'esse email já está em uso.');
 
 export default mongoose.model('teacher', TeacherSchema);

@@ -15,14 +15,14 @@ class UserService extends AbstractService {
             _id:data.payload._id,
             username:data.payload.username,
             avatar:data.payload.avatar,
-            typeUser:data.payload.typeUser
+            typeUser:data.payload.typeUser,
+            email:data.payload.email
         };
 
         const other = {
             _id:data.payload.idOther,
             name:data.payload.name,
-            birthDate:data.payload.birthDate,
-            email:data.payload.email
+            birthDate:data.payload.birthDate
         };
 
         return this.userDAO.update(user,other,success,error);
@@ -33,13 +33,13 @@ class UserService extends AbstractService {
         const user = {
             username:data.payload.username,
             password:data.payload.password,
-            typeUser:data.payload.typeUser
+            typeUser:data.payload.typeUser,
+            email:data.payload.email,
         };
 
         const other = {
             name:data.payload.name,
             birthDate:data.payload.birthDate,
-            email:data.payload.email,
             user:null,
             groups:[]
         }
