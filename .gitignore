@@ -4,4 +4,4 @@ npm-debug.log
 
 debug\.log
 
-src/modules/config/db\.js
+src/modules/config/db.js

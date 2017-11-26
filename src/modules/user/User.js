@@ -53,9 +53,10 @@ UserSchema
       .catch(function(err) {
         throw err;
       });
-  }, 'esse login já está em uso.');
+  }, 'esse login já está em uso.')
 
-  UserSchema
+
+UserSchema
   .path('email')
   .validate(function(value, respond) {
     var self = this;

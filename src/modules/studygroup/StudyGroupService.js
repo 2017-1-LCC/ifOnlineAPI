@@ -22,7 +22,7 @@ class StudyGroupService extends AbstractService {
             data.payload.proof = data.payload.proof.filter(el => !el.removed );
         }
 
-        if(date.payload.scheduledActivity) {
+        if(data.payload.scheduledActivity) {            
             data.payload.scheduledActivity = data.payload.scheduledActivity.filter(el => !el.removed );
         }
     
