@@ -81,7 +81,15 @@ class StudyGroupDAO extends AbstractDAO {
 
     findGroupsFullObject(id,success,error) {
         this.group.findOne({_id:id})
-            .populate('admin','name birthDate email')
+            .populate({
+                path:'admin',
+                model:'teacher',
+                select:'-groups -__v ',
+                populate: {
+                    path:'user',
+                    model:'user'
+                }
+            })
             .populate('students')
             .exec()
             .then(success)
