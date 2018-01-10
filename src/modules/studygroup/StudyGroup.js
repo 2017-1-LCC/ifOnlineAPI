@@ -34,6 +34,7 @@ const obj = new Schema({
         type:Schema.Types.ObjectId,
         ref:'student'
     }],
+    //horario das aulas
     classSchedule: [{
         dayOfWeek:String,
         startTime:String,
