@@ -3,9 +3,9 @@ import AbstractService from '../AbstractService';
 
 class StudyGroupService extends AbstractService {
 
-    constructor(StudyGroup, Teacher, Student) {
-        super(new StudyGroupDAO(StudyGroup, Teacher, Student));
-        this.studyGroupDAO = new StudyGroupDAO(StudyGroup, Teacher, Student);
+    constructor(StudyGroup, Teacher, Student, Timeline) {
+        super(new StudyGroupDAO(StudyGroup, Teacher, Student, Timeline));
+        this.studyGroupDAO = new StudyGroupDAO(StudyGroup, Teacher, Student, Timeline);
     };
 
     update(data, success, error) {

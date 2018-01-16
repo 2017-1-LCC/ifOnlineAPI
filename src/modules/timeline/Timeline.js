@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const TimelineSchema = new Schema({
 
-    name: {
+    description: {
         type:String
     },
     birthDate: {
@@ -14,10 +14,10 @@ const TimelineSchema = new Schema({
         type:Schema.Types.ObjectId,
         ref:'user'
     },
-    groups: [{
+    group: {    
         type: Schema.Types.ObjectId,
         ref:'studygroup'
-    }]
+    }
 
 });
 

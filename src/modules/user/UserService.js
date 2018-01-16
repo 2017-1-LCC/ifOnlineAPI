@@ -1,3 +1,14 @@
+import cloudinary from 'cloudinary';
+import multer from 'multer';
+
+const upload = multer({ dest: './uploads/'});
+
+cloudinary.config({ 
+    cloud_name: 'hc3', 
+    api_key: '689678777189239', 
+    api_secret: 'g9WbuIE2yeWnkF1shQj_w2An32A' 
+}); 
+
 import UserDAO from './UserDAO';
 import AbstractService from '../AbstractService';
 
@@ -11,21 +22,29 @@ class UserService extends AbstractService {
 
     update(data,success,error) {
         // APLICAR VALIDAÇÃO AO CRIAR NOVO USUÁRIO
-        const user = {
-            _id:data.payload._id,
-            username:data.payload.username,
-            avatar:data.payload.avatar,
-            typeUser:data.payload.typeUser,
-            email:data.payload.email
-        };
 
-        const other = {
-            _id:data.payload.idOther,
-            name:data.payload.name,
-            birthDate:data.payload.birthDate
-        };
+        cloudinary.v2.uploader.upload("data:image/png;base64,"+data.payload.avatar, {public_id:data.payload._id})
+        .then(result => {
 
-        return this.userDAO.update(user,other,success,error);
+            const user = {
+                _id:data.payload._id,
+                username:data.payload.username,
+                avatar:result.url,
+                typeUser:data.payload.typeUser,
+                email:data.payload.email
+            };
+    
+            const other = {
+                _id:data.payload.idOther,
+                name:data.payload.name,
+                birthDate:data.payload.birthDate
+            };
+    
+            return this.userDAO.update(user,other,success,error);
+
+        })
+
+            
     };
 
     create(data,success,error) {
