@@ -156,7 +156,14 @@ class StudyGroupDAO extends AbstractDAO {
                     model:'user'
                 }
             })
-            .populate('students')
+            .populate({
+                path:'students',
+                model:'student',
+                populate:{
+                    path:'user',
+                    model:'user'
+                }
+            })
             .exec()
             .then(success)
             .catch(error);
