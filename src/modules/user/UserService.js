@@ -23,13 +23,34 @@ class UserService extends AbstractService {
     update(data,success,error) {
         // APLICAR VALIDAÇÃO AO CRIAR NOVO USUÁRIO
 
-        cloudinary.v2.uploader.upload("data:image/png;base64,"+data.payload.avatar, {public_id:data.payload._id})
-        .then(result => {
+        if(data.payload.avatar) {
+
+            cloudinary.v2.uploader.upload("data:image/png;base64,"+data.payload.avatar, {public_id:data.payload._id})
+    
+            .then(result => {
+    
+                const user = {
+                    _id:data.payload._id,
+                    username:data.payload.username,
+                    avatar:result.url,
+                    typeUser:data.payload.typeUser,
+                    email:data.payload.email
+                };
+        
+                const other = {
+                    _id:data.payload.idOther,
+                    name:data.payload.name,
+                    birthDate:data.payload.birthDate
+                };
+        
+                return this.userDAO.update(user,other,success,error);
+    
+            })
+        } else {
 
             const user = {
                 _id:data.payload._id,
                 username:data.payload.username,
-                avatar:result.url,
                 typeUser:data.payload.typeUser,
                 email:data.payload.email
             };
@@ -42,7 +63,8 @@ class UserService extends AbstractService {
     
             return this.userDAO.update(user,other,success,error);
 
-        })
+        }
+
 
             
     };
