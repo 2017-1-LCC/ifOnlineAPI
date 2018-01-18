@@ -4,9 +4,20 @@ import bcrypt from 'bcrypt';
 
 const SALT_WORK_FACTOR = 10;
 
+function toLower (v) {
+  return v.toLowerCase();
+}
+
 const UserSchema = new Schema({
   username: {
     type:String,
+    set: toLower,
+    require:true,
+    unique:true
+  },
+  email: {
+    type:String,
+    set: toLower,
     require:true,
     unique:true
   },
@@ -29,7 +40,7 @@ UserSchema
   .path('username')
   .validate(function(value, respond) {
     var self = this;
-    return this.constructor.findOne({ username: value })
+    return this.constructor.findOne({ username: toLower(value) })
       .then(function(user) {
         if (user) {
           if (self._id === user._id) {
@@ -42,7 +53,28 @@ UserSchema
       .catch(function(err) {
         throw err;
       });
-  }, 'esse login já está em uso.');
+  }, 'esse login já está em uso.')
+
+
+UserSchema
+  .path('email')
+  .validate(function(value, respond) {
+    var self = this;
+    return this.constructor.findOne({ email: toLower(value) })
+      .then(function(user) {
+        if (user) {
+          if (self._id === user._id) {
+            return respond(true);
+          }
+          return respond(false);
+        }
+        return respond(true);
+      })
+      .catch(function(err) {
+        throw err;
+      });
+  }, 'esse E-mail já está em uso.');
+
 
 UserSchema.pre('save', function(next) {
   var user = this;

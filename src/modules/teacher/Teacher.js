@@ -1,16 +1,13 @@
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
-const obj = {
+const TeacherSchema = new Schema({
 
     name: {
         type:String
     },
     birthDate: {
         type:Date
-    },
-    email: {
-        type:String
     },
     user:{
         type:Schema.Types.ObjectId,
@@ -21,6 +18,6 @@ const obj = {
         ref:'studygroup'
     }]
 
-};
+});
 
-export default mongoose.model('teacher', new Schema(obj));
+export default mongoose.model('teacher', TeacherSchema);

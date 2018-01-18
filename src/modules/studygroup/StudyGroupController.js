@@ -2,14 +2,17 @@ import StudyGroupService from './StudyGroupService';
 import Studygroup from './StudyGroup';
 import Teacher from '../teacher/Teacher';
 import Student from '../student/Student';
+import Timeline from '../timeline/Timeline';
 import action from '../actions/actions';
 
 exports.register = function(server, options ,next) {
+    
     const studygroup = server.app.db.models.studygroup;
     const teacher = server.app.db.models.teacher;
     const student = server.app.db.models.student;
+    const timeline = server.app.db.models.timeline;
 
-    const service = new StudyGroupService(studygroup,teacher,student);
+    const service = new StudyGroupService(studygroup,teacher,student,timeline);
 
     server.route({
         method: 'GET',

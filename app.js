@@ -9,11 +9,12 @@ server.app.db = db;
 // ### --- START SERVER --- ### 
 server.register([
     require('./auth'),
+    require('./src/modules/timeline/TimelineController'),
     require('./src/modules/student/StudentController'),
     require('./src/modules/teacher/TeacherController'),
     require('./src/modules/studygroup/StudyGroupController'),
     require('./src/modules/user/UserController'),
-    require('./src/modules/auth/AuthController'),
+    require('./src/modules/auth/AuthController')
 ],(err) => {
     if(err) throw err;
 })

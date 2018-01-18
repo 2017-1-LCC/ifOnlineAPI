@@ -3,28 +3,29 @@ import AbstractService from '../AbstractService';
 
 class StudyGroupService extends AbstractService {
 
-    constructor(StudyGroup, Teacher, Student) {
-        super(new StudyGroupDAO(StudyGroup, Teacher, Student));
-        this.studyGroupDAO = new StudyGroupDAO(StudyGroup, Teacher, Student);
+    constructor(StudyGroup, Teacher, Student, Timeline) {
+        super(new StudyGroupDAO(StudyGroup, Teacher, Student, Timeline));
+        this.studyGroupDAO = new StudyGroupDAO(StudyGroup, Teacher, Student, Timeline);
     };
 
     update(data, success, error) {
-        if(data.payload.classSchedule) {
-            data.payload.classSchedule = data.payload.classSchedule.filter(el => !el.removed );
-        }
-        if(data.payload.proof) {
-            data.payload.proof = data.payload.proof.filter(el => !el.removed );
-        }
         return this.DAO.update(data.payload,success,error)
     }
 
     create(data,success,error) {
+        
         if(data.payload.classSchedule) {
             data.payload.classSchedule = data.payload.classSchedule.filter(el => !el.removed );
         }
+
         if(data.payload.proof) {
             data.payload.proof = data.payload.proof.filter(el => !el.removed );
         }
+
+        if(data.payload.scheduledActivity) {            
+            data.payload.scheduledActivity = data.payload.scheduledActivity.filter(el => !el.removed );
+        }
+    
         return this.DAO.create(data.payload,success,error);
     };
 
