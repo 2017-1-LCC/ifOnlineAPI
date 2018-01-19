@@ -42,6 +42,15 @@ class StudyGroupDAO extends AbstractDAO {
             .done()
     }
 
+
+    addComent(idGroup, data, success, error) {
+
+        this.group.update(idGroup, data)
+            .then(success)
+            .catch(error)
+
+    }
+
     addStudentOnGroup(idStudent, idGroup, success, error) {
 
         const group = {'_id':idGroup}
@@ -81,14 +90,24 @@ class StudyGroupDAO extends AbstractDAO {
             .catch(error)
     }
 
+
+    removeComment(idGroup, removeComment, success, error) {
+
+        this.group.update(idGroup, removeComment)
+            .then(success)
+            .catch(error) 
+    }
+
     removeStudentOnGroup(idStudent, idGroup, success, error) {
+        
         const group = {'_id':idGroup}
         const student = {'_id':idStudent}
-        const addStudent = {$pull:{'students':idStudent}}
-        const addGroupToStudent = {$pull:{'groups':idGroup}}
-        this.group.update(group,addStudent)
+        const removeStudent = {$pull:{'students':idStudent}}
+        const removeGroupToStudent = {$pull:{'groups':idGroup}}
+
+        this.group.update(group,removeStudent)
             .then(() => {
-                this.student.update(student, addGroupToStudent)
+                this.student.update(student, removeGroupToStudent)
                     .then(success)
                     .then(() => {
 
@@ -164,6 +183,8 @@ class StudyGroupDAO extends AbstractDAO {
                     model:'user'
                 }
             })
+            .populate('comments.user')
+            .sort({'comments.dateComment':-1})
             .exec()
             .then(success)
             .catch(error);

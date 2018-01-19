@@ -39,6 +39,28 @@ exports.register = function(server, options ,next) {
 
     server.route({
         method: 'POST',
+        path: '/addComment/{idGroup}',
+        config: {
+            auth:'token',
+            handler: (request, reply) => {
+                action.addCommentOnGroup(request, reply, service);
+            }
+        }
+    });
+
+    server.route({
+        method: 'POST',
+        path: '/remove/{idGroup}/comment/{idComment}',
+        config: {
+            auth:'token',
+            handler: (request, reply) => {
+                action.removeCommentOnGroup(request, reply, service);
+            }
+        }
+    });
+
+    server.route({
+        method: 'POST',
         path: '/add/{idStudent}/ingroup/{idGroup}',
         config: {
             auth:'token',

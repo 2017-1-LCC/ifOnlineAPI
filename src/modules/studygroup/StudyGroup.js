@@ -54,6 +54,23 @@ const obj = new Schema({
         sendDate:Date,
         deliveryDate:Date,
         removed:Boolean
+    }],
+    comments:[{
+        user:{
+            type:Schema.Types.ObjectId,
+            ref:'user'
+        },
+        content:String,
+        dateComment:{ type: Date, default: Date.now },
+        removed:Boolean
+    }],
+    likers:[{
+        user:{
+            type:Schema.Types.ObjectId,
+            ref:'user'
+        },
+        isLiker:Boolean,
+        removed:Boolean 
     }]
 });
 
@@ -63,6 +80,8 @@ obj.pre('findOneAndUpdate',function(next) {
     group._update.classSchedule = group._update.classSchedule.filter(el => !el.removed );
     group._update.proof = group._update.proof.filter(el => !el.removed );
     group._update.scheduledActivity = group._update.scheduledActivity.filter(el => !el.removed );
+    group._update.likers = group._update.likers.filter(el => !el.removed );
+    group._update.comments = group._update.comments.filter(el => !el.removed );
 
     next();
 })

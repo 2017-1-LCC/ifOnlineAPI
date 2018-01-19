@@ -12,6 +12,35 @@ class StudyGroupService extends AbstractService {
         return this.DAO.update(data.payload,success,error)
     }
 
+    addCommentOnGroup(data, success, error) {
+
+        const groupId = {'_id':data.params.idGroup};
+
+        const insertCommentQuery = {
+            $push:{
+                'comments':{
+                    user:data.payload.user,
+                    content:data.payload.content,
+                    removed:data.payload.removed
+                }
+            }
+        }
+        return this.DAO.addComent(groupId, insertCommentQuery, success, error);
+    }
+
+    removeCommentOnGroup(data, success, error) {
+        const groupId = {'_id':data.params.idGroup};
+        const removeComment = {
+            $pull:{
+                'comments':{
+                    _id:data.params.idComment
+                }
+            }
+        }
+
+        return this.DAO.removeComment(groupId, removeComment, success, error);
+    }
+
     create(data,success,error) {
         
         if(data.payload.classSchedule) {

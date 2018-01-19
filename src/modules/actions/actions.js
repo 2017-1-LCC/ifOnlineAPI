@@ -85,7 +85,15 @@ const obj = {
     },
     removeStudentOnGroup:(req, res, service) => {
         service.removeStudentOnGroup(req, success(res), error(res));
+    },
+    addCommentOnGroup:(req, res, service) => {
+        service.addCommentOnGroup(req, success(res), error(res));
+    },
+    removeCommentOnGroup:(req, res, service) => {
+        service.removeCommentOnGroup(req, success(res), error(res));
     }
+
+    
     // -----------------------------------------------------------------------------------------------
 }
 
