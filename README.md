@@ -20,6 +20,7 @@ por enquanto é só.. hehe.<p>
 
 # IDEIA DA API
 - A ideia aqui é primeiramente ter um local para o aluno poder criar grupos de estudos compartilhados.
+- Integrar com outros serviços da faculdade como o Pergamum.
 
 # IDEIAS PARA IMPLEMENTAÇÃO FUTURA
 - O aluno que tiver uma boa média em relação às notas, poderá criar grupos
@@ -30,7 +31,7 @@ por enquanto é só.. hehe.<p>
 ````
 npm run tdd
 ````
-- [x] - STUDENT [ INICIANDO IMPLEMENTAÇÃO DOS TESTES ]
+- [x] - STUDENT.
 - [x] - STUDY GROUP.
 - [x] - TEACHER.
 - [x] - USER.
@@ -42,12 +43,13 @@ npm run tdd
 - [x] - ALUNO SAI DO GRUPO.
 - [x] - REFAZER TESTES COM A NOVA MODELAGEM DE USER.
 - [x] - AO BUSCAR TODOS OS GRUPOS POPULAR APENAS O ADMIN.
+- [ ] - INEGRAR AO PERGAMUM
 
 ### Notas teste interação da API
 - [x] - CRIAR USUÁRIO.
 - [x] - LOGAR COM USUÁRIO PROFESSOR.
 - [x] - CRIAR GRUPOS DE ESTUDO.
-- [ ] - REMOVER GRUPOS DE ESTUDO.
+- [x] - REMOVER GRUPOS DE ESTUDO.
 - [x] - ADICIONAR PROVAS NO GRUPO. 
 - [x] - ADICIONAR HORÁRIO DAS AULAS. 
 - [x] - LOGAR COM USUÁRIO ESTUDANTE.
