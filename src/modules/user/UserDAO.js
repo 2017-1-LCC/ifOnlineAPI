@@ -27,7 +27,8 @@ class UserDAO extends AbstractDAO {
     };
 
 
-    create(user,other,success,error) {
+    create(data,success,error) {
+
         this.user.create(user)
             .then(inseredUser => {
                 other.user = inseredUser._id

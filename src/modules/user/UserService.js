@@ -11,6 +11,7 @@ cloudinary.config({
 
 import UserDAO from './UserDAO';
 import AbstractService from '../AbstractService';
+import factory from './UserFactory';
 
 
 class UserService extends AbstractService {
@@ -71,20 +72,11 @@ class UserService extends AbstractService {
 
     create(data,success,error) {
         // APLICAR VALIDAÇÃO AO CRIAR NOVO USUÁRIO
-        const user = {
-            username:data.payload.username,
-            password:data.payload.password,
-            typeUser:data.payload.typeUser,
-            email:data.payload.email,
-        };
+        // const user = factory.create(data.payload);
+        // const other = factory.create(data.payload);
+        const data = factory.create(data.payload);
 
-        const other = {
-            name:data.payload.name,
-            birthDate:data.payload.birthDate,
-            user:null,
-            groups:[]
-        }
-        return this.userDAO.create(user,other,success,error);
+        return this.userDAO.create(data,success,error);
     };
 
     removeWithDependecy(idUser, success, error) {

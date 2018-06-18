@@ -34,6 +34,25 @@ const obj = {
     deleteToken:(req, res, service) => {
         service.deleteToken(req.payload,sucessToken(res),errorToken(res));
     },
+    notAuthorized:(res) => {
+
+        let message = {
+            error:true,
+            message:'Usuário não tem autorização para acessar'
+        };
+
+        return res(message);
+    },
+    isAuthorized:(req, type) => {
+
+        const role = req.auth.credentials.role;
+
+        if(role === type || role === 'admin') {
+            return true;
+        } else {
+            return false;
+        }
+    },
     // ---------------------------------------------------------------------------------------------
 
     

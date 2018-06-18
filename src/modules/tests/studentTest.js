@@ -56,8 +56,8 @@ describe("## TESTANDO FUNCIONALIDADES DO ESTUDANTE",() => {
         url:"/student"
       },res => {
         expect(res.statusCode).to.eql(401);
-        done();
       })
+        done();
     })
   })
 
@@ -71,8 +71,8 @@ describe("## TESTANDO FUNCIONALIDADES DO ESTUDANTE",() => {
       },res => {
         token = res.result.token;
         expect(res.statusCode).to.eql(200);
-        done();
       })
+        done();
     })
 
     it("/STUDENT -> BUSCA TODOS OS ESTUDANTES", done => {
@@ -85,8 +85,8 @@ describe("## TESTANDO FUNCIONALIDADES DO ESTUDANTE",() => {
       },res => {
         expect(res.result).to.be.an('array');
         expect(res.statusCode).to.eql(200);
-        done();
       })
+        done();
     })
 
     it("/STUDENT/{id} -> BUSCA ESTUDANTE POR ID", done => {
@@ -98,8 +98,8 @@ describe("## TESTANDO FUNCIONALIDADES DO ESTUDANTE",() => {
         }
       },res => {
         expect(res.statusCode).to.eql(200);
-        done();
       })
+        done();
     })
 //VERIFICAR
     it("/STUDENT/{name} -> BUSCA ESTUDANTE POR USERNAME", done => {
@@ -111,8 +111,8 @@ describe("## TESTANDO FUNCIONALIDADES DO ESTUDANTE",() => {
         }
       },res => {
         expect(res.statusCode).to.eql(200);
-        done();
       })
+        done();
     })
 
     it("/STUDENT -> CRIA NOVO ESTUDANTE", done => {
@@ -145,8 +145,8 @@ describe("## TESTANDO FUNCIONALIDADES DO ESTUDANTE",() => {
       },res => {
         secondID = res.result._id;
         expect(res.statusCode).to.eql(200);
-        done();
       })
+        done();
     })
 
     it("/STUDENT/{id} -> ATUALIZA ESTUDANTE", done => {
@@ -166,8 +166,8 @@ describe("## TESTANDO FUNCIONALIDADES DO ESTUDANTE",() => {
         payload: JSON.stringify(defaultObjUpdated)
       },res => {
         expect(res.statusCode).to.eql(200);
-        done();
       })
+        done();
     })
 
     it("/STUDENT/{id} -> REMOVE ESTUDANTE", done => {
@@ -180,8 +180,8 @@ describe("## TESTANDO FUNCIONALIDADES DO ESTUDANTE",() => {
         }
       },res => {
         expect(res.statusCode).to.eql(200);
-        done();
       })
+        done();
     })
 
   })

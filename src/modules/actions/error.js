@@ -4,7 +4,7 @@
  };
 
 export default (reply) => (err) => {
-  console.log(err.errors.username);
+  console.log(err.errors);
   if(err.errors.username) {
     errorMessage.message = err.errors.username.message;
     return reply(errorMessage);

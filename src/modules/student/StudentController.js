@@ -51,6 +51,7 @@ exports.register = function(server, options ,next) {
         }
     });
 
+/*
     server.route({
         method: 'DELETE',
         path: '/student/{id}',
@@ -61,7 +62,7 @@ exports.register = function(server, options ,next) {
             }
         }
     });
-
+*/
     server.route({
         method: 'PUT',
         path: '/student/{id}',
